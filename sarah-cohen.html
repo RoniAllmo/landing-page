@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ד"ר שרה כהן – רפואת שיניים</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background-color: #f0f8ff;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1a73e8, #0d47a1);
+      color: white;
+      text-align: center;
+      padding: 60px 20px 40px;
+    }
+    header h1 { font-size: 2.6rem; margin-bottom: 10px; }
+    header p.subtitle { font-size: 1.2rem; opacity: 0.9; }
+
+    .about {
+      max-width: 700px; margin: 40px auto;
+      padding: 0 20px; text-align: center;
+    }
+    .about h2 { font-size: 1.6rem; color: #1a73e8; margin-bottom: 14px; }
+    .about p { font-size: 1.05rem; line-height: 1.8; color: #555; }
+
+    .services {
+      background: white; max-width: 700px; margin: 30px auto;
+      border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      padding: 36px 40px;
+    }
+    .services h2 { font-size: 1.6rem; color: #1a73e8; margin-bottom: 20px; text-align: center; }
+    .services ul {
+      list-style: none; display: grid;
+      grid-template-columns: 1fr 1fr; gap: 14px;
+    }
+    .services ul li { display: flex; align-items: center; gap: 10px; font-size: 1rem; color: #444; }
+    .services ul li::before { content: "✔"; color: #1a73e8; font-weight: bold; }
+
+    .cta { text-align: center; padding: 40px 20px 60px; }
+    .cta p { font-size: 1.1rem; color: #555; margin-bottom: 20px; }
+
+    .whatsapp-btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      background-color: #25d366; color: white; text-decoration: none;
+      font-size: 1.15rem; font-weight: bold; padding: 16px 36px;
+      border-radius: 50px; box-shadow: 0 4px 14px rgba(37,211,102,0.4);
+      transition: background 0.2s, transform 0.2s;
+    }
+    .whatsapp-btn:hover { background-color: #1ebe5d; transform: translateY(-2px); }
+    .whatsapp-btn svg { width: 26px; height: 26px; fill: white; }
+
+    footer {
+      background: #0d47a1; color: rgba(255,255,255,0.75);
+      text-align: center; padding: 18px; font-size: 0.9rem;
+    }
+
+    @media (max-width: 500px) {
+      header h1 { font-size: 1.8rem; }
+      .services ul { grid-template-columns: 1fr; }
+      .services { padding: 28px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>ד"ר שרה כהן</h1>
+    <p class="subtitle">רפואת שיניים – מקצועיות, חמימות וחיוך בריא</p>
+  </header>
+
+  <section class="about">
+    <h2>ברוכים הבאים</h2>
+    <p>
+      ד"ר שרה כהן היא רופאת שיניים מוסמכת עם ניסיון של מעל 15 שנה.
+      המרפאה מציעה טיפולים מתקדמים בסביבה נעימה ומרגיעה,
+      תוך מתן דגש על בריאות הפה, אסתטיקה ושירות אישי לכל מטופל ומטופלת.
+    </p>
+  </section>
+
+  <section class="services">
+    <h2>השירותים שלנו</h2>
+    <ul>
+      <li>בדיקות שגרתיות וניקוי שיניים</li>
+      <li>טיפולי שורש</li>
+      <li>הלבנת שיניים</li>
+      <li>ציפויי חרסינה (ונירות)</li>
+      <li>שתלים דנטליים</li>
+      <li>יישור שיניים (אינויזליין)</li>
+      <li>כתרים וגשרים</li>
+      <li>טיפולי חניכיים</li>
+    </ul>
+  </section>
+
+  <section class="cta">
+    <p>רוצים לקבוע תור או לשאול שאלה? דברו איתנו ישירות בוואטסאפ!</p>
+    <a class="whatsapp-btn"
+       href="https://wa.me/972500000000?text=שלום%20ד%22ר%20שרה%20כהן%2C%20אשמח%20לקבוע%20תור"
+       target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.472 14.382c..."/> <!-- אייקון וואטסאפ -->
+      </svg>
+      שלחו לנו הודעה בוואטסאפ
+    </a>
+  </section>
+
+  <footer>
+    <p>© 2026 ד"ר שרה כהן – כל הזכויות שמורות</p>
+  </footer>
+
+</body>
+</html>
