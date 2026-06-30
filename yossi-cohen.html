@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>יוסי כהן | יועץ פיננסי עצמאי</title>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #1B3A5C;
+            --color-primary-dark: #122840;
+            --color-primary-light: #2a5585;
+            --color-accent: #C8A96E;
+            --color-accent-light: #d4bb8a;
+            --color-white: #FFFFFF;
+            --color-bg: #F8F9FA;
+            --color-bg-dark: #EEF1F5;
+            --color-text: #2C3E50;
+            --color-text-light: #5D6D7E;
+            --color-text-muted: #8E9EAE;
+            --color-border: #D5DCE6;
+            --font-main: 'Heebo', sans-serif;
+            --shadow-sm: 0 2px 8px rgba(27, 58, 92, 0.08);
+            --shadow-md: 0 4px 20px rgba(27, 58, 92, 0.12);
+            --shadow-lg: 0 8px 40px rgba(27, 58, 92, 0.18);
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --transition: 0.3s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--color-text);
+            background: var(--color-white);
+            direction: rtl;
+            line-height: 1.7;
+        }
+
+        /* === ANIMATIONS — עובדות בלי JS === */
+        .fade-in {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .js-loaded .fade-in {
+            opacity: 0;
+            transform: translateY(28px);
+        }
+        .js-loaded .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* === HEADER === */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.97);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            z-index: 1000;
+        }
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--color-primary);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-white);
+            font-weight: 800;
+            font-size: 14px;
+            letter-spacing: -1px;
+        }
+        .logo-name {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--color-primary);
+            line-height: 1.2;
+        }
+        .logo-subtitle {
+            font-size: 12px;
+            color: var(--color-text-light);
+        }
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+        nav a {
+            text-decoration: none;
+            color: var(--color-text);
+            font-size: 15px;
+            font-weight: 500;
+            transition: color var(--transition);
+        }
+        nav a:hover { color: var(--color-primary); }
+        .nav-cta {
+            background: var(--color-primary) !important;
+            color: var(--color-white) !important;
+            padding: 10px 22px;
+            border-radius: var(--radius-sm);
+            font-weight: 600 !important;
+            transition: background var(--transition), transform var(--transition) !important;
+        }
+        .nav-cta:hover {
+            background: var(--color-primary-dark) !important;
+            transform: translateY(-1px);
+        }
+
+        /* === HERO === */
+        #hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 60%, #3a6fa8 100%);
+            display: flex;
+            align-items: center;
+            padding-top: 72px;
+            position: relative;
+            overflow: hidden;
+        }
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            left: -15%;
+            width: 550px;
+            height: 550px;
+            background: rgba(200,169,110,0.07);
+            border-radius: 50%;
+        }
+        #hero::after {
+            content: '';
+            position: absolute;
+            bottom: -25%;
+            right: -10%;
+            width: 480px;
+            height: 480px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 50%;
+        }
+        .hero-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 24px;
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(200,169,110,0.2);
+            border: 1px solid rgba(200,169,110,0.4);
+            color: var(--color-accent-light);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+        .hero-title {
+            font-size: clamp(30px, 4.5vw, 52px);
+            font-weight: 800;
+            color: var(--color-white);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        .hero-title span { color: var(--color-accent); }
+        .hero-subtitle {
+            font-size: 18px;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 40px;
+            font-weight: 300;
+            line-height: 1.85;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 48px;
+        }
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--color-accent);
+            color: var(--color-primary);
+            padding: 16px 32px;
+            border-radius: var(--radius-sm);
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(200,169,110,0.4);
+            transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(200,169,110,0.55);
+            background: var(--color-accent-light);
+        }
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            color: var(--color-white);
+            padding: 16px 30px;
+            border-radius: var(--radius-sm);
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            border: 2px solid rgba(255,255,255,0.4);
+            transition: border-color var(--transition), background var(--transition);
+        }
+        .btn-secondary:hover {
+            border-color: var(--color-white);
+            background: rgba(255,255,255,0.1);
+        }
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .stat-item { text-align: center; }
+        .stat-number {
+            font-size: 38px;
+            font-weight: 800;
+            color: var(--color-accent);
+            line-height: 1;
+        }
+        .stat-label {
+            font-size: 13px;
+            color: rgba(255,255,255,0.7);
+            margin-top: 4px;
+        }
+        .hero-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.18);
+            border-radius: var(--radius-lg);
+            padding: 40px 36px;
+        }
+        .hero-card-avatar {
+            width: 80px;
+            height: 80px;
+            background: var(--color-accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            font-weight: 800;
+            color: var(--color-primary);
+            margin: 0 auto 20px;
+        }
+        .hero-card h3 {
+            color: var(--color-white);
+            font-size: 22px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 4px;
+        }
+        .hero-card .card-role {
+            color: rgba(255,255,255,0.65);
+            font-size: 14px;
+            text-align: center;
+            margin-bottom: 28px;
+        }
+        .card-features {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .card-features li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: rgba(255,255,255,0.88);
+            font-size: 15px;
+        }
+        .card-features li::before {
+            content: '✓';
+            width: 24px;
+            height: 24px;
+            background: rgba(200,169,110,0.25);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-accent);
+            font-weight: 700;
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+
+        /* === ABOUT === */
+        #about {
+            padding: 100px 24px;
+            background: var(--color-white);
+        }
+        .section-inner { max-width: 1200px; margin: 0 auto; }
+        .section-tag {
+            display: inline-block;
+            background: rgba(27,58,92,0.08);
+            color: var(--color-primary);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        .section-title {
+            font-size: clamp(26px, 3.5vw, 40px);
+            font-weight: 800;
+            color: var(--color-primary);
+            margin-bottom: 14px;
+            line-height: 1.25;
+        }
+        .section-subtitle {
+            font-size: 17px;
+            color: var(--color-text-light);
+            max-width: 580px;
+            line-height: 1.8;
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-top: 60px;
+        }
+        .about-text p {
+            color: var(--color-text-light);
+            font-size: 16px;
+            line-height: 1.9;
+            margin-bottom: 20px;
+        }
+        .about-highlights {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-top: 32px;
+        }
+        .highlight-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 20px;
+            background: var(--color-bg);
+            border-radius: var(--radius-md);
+            border-right: 4px solid var(--color-primary);
+        }
+        .highlight-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--color-primary);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+        .highlight-content h4 {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 4px;
+        }
+        .highlight-content p {
+            font-size: 13px;
+            color: var(--color-text-light);
+            margin: 0;
+        }
+        .about-card {
+            background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-bg-dark) 100%);
+            border-radius: var(--radius-lg);
+            padding: 48px 40px;
+            text-align: center;
+        }
+        .about-avatar {
+            width: 110px;
+            height: 110px;
+            background: var(--color-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 44px;
+            font-weight: 800;
+            color: var(--color-white);
+            margin: 0 auto 24px;
+            box-shadow: var(--shadow-md);
+        }
+        .about-card h3 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--color-primary);
+            margin-bottom: 6px;
+        }
+        .about-role {
+            font-size: 15px;
+            color: var(--color-text-light);
+            margin-bottom: 28px;
+        }
+        .credentials {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            text-align: right;
+        }
+        .credential-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: var(--color-text);
+        }
+        .cred-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--color-accent);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* === SERVICES === */
+        #services {
+            padding: 100px 24px;
+            background: var(--color-bg);
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 60px;
+        }
+        .service-card {
+            background: var(--color-white);
+            border-radius: var(--radius-md);
+            padding: 36px 28px;
+            box-shadow: var(--shadow-sm);
+            border-top: 4px solid transparent;
+            transition: transform var(--transition), box-shadow var(--transition), border-top-color var(--transition);
+        }
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-top-color: var(--color-primary);
+        }
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(27,58,92,0.08);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 24px;
+        }
+        .service-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 12px;
+        }
+        .service-card p {
+            font-size: 14px;
+            color: var(--color-text-light);
+            line-height: 1.8;
+        }
+
+        /* === PROCESS === */
+        #process {
+            padding: 100px 24px;
+            background: var(--color-white);
+        }
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            margin-top: 60px;
+            position: relative;
+        }
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 36px;
+            right: 12.5%;
+            left: 12.5%;
+            height: 2px;
+            background: linear-gradient(to left, var(--color-primary), var(--color-accent));
+            z-index: 0;
+        }
+        .step-item {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        .step-number {
+            width: 72px;
+            height: 72px;
+            background: var(--color-primary);
+            color: var(--color-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 800;
+            margin: 0 auto 24px;
+            box-shadow: 0 4px 16px rgba(27,58,92,0.3);
+        }
+        .step-item h3 {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 10px;
+        }
+        .step-item p {
+            font-size: 14px;
+            color: var(--color-text-light);
+            line-height: 1.75;
+        }
+
+        /* === SOCIAL PROOF === */
+        #social-proof {
+            padding: 100px 24px;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+        }
+        #social-proof .section-title { color: var(--color-white); }
+        #social-proof .section-subtitle { color: rgba(255,255,255,0.75); }
+        #social-proof .section-tag {
+            background: rgba(200,169,110,0.2);
+            color: var(--color-accent-light);
+        }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 60px;
+        }
+        .testimonial-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: var(--radius-md);
+            padding: 36px;
+        }
+        .stars {
+            color: var(--color-accent);
+            font-size: 18px;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+        }
+        .testimonial-card blockquote {
+            font-size: 15px;
+            color: rgba(255,255,255,0.9);
+            line-height: 1.8;
+            margin-bottom: 24px;
+            font-style: italic;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .author-avatar {
+            width: 44px;
+            height: 44px;
+            background: var(--color-accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--color-primary);
+            font-size: 13px;
+            flex-shrink: 0;
+        }
+        .author-info strong {
+            display: block;
+            color: var(--color-white);
+            font-size: 14px;
+            font-weight: 700;
+        }
+        .author-info span {
+            font-size: 12px;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* === CTA === */
+        #cta {
+            padding: 100px 24px;
+            background: var(--color-bg);
+            text-align: center;
+        }
+        .cta-box { max-width: 680px; margin: 0 auto; }
+        .cta-box p {
+            font-size: 17px;
+            color: var(--color-text-light);
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .btn-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--color-primary);
+            color: var(--color-white);
+            padding: 18px 40px;
+            border-radius: var(--radius-sm);
+            font-size: 17px;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(27,58,92,0.3);
+            transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+        }
+        .btn-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(27,58,92,0.4);
+            background: var(--color-primary-dark);
+        }
+        .btn-cta-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            color: var(--color-primary);
+            padding: 18px 40px;
+            border-radius: var(--radius-sm);
+            font-size: 17px;
+            font-weight: 700;
+            text-decoration: none;
+            border: 2px solid var(--color-primary);
+            transition: background var(--transition), color var(--transition);
+        }
+        .btn-cta-outline:hover {
+            background: var(--color-primary);
+            color: var(--color-white);
+        }
+        .cta-note {
+            margin-top: 20px;
+            font-size: 13px;
+            color: var(--color-text-muted);
+        }
+
+        /* === FOOTER === */
+        footer {
+            background: var(--color-primary);
+            color: rgba(255,255,255,0.8);
+            padding: 64px 24px 32px;
+        }
+        .footer-inner { max-width: 1200px; margin: 0 auto; }
+        .footer-top {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+        .footer-brand .logo-name { color: var(--color-white); font-size: 20px; }
+        .footer-brand .logo-subtitle { color: rgba(255,255,255,0.55); }
+        .footer-brand p {
+            margin-top: 16px;
+            font-size: 14px;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.6);
+        }
+        .footer-col h4 {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--color-white);
+            margin-bottom: 20px;
+        }
+        .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+        .footer-col ul li a {
+            text-decoration: none;
+            color: rgba(255,255,255,0.6);
+            font-size: 14px;
+            transition: color var(--transition);
+        }
+        .footer-col ul li a:hover { color: var(--color-accent); }
+        .footer-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 12px;
+        }
+        hr.footer-divider {
+            border: none;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 24px;
+        }
+        .footer-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 13px;
+            color: rgba(255,255,255,0.4);
+        }
+
+        /* === WHATSAPP FLOAT === */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 32px;
+            left: 32px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+            z-index: 999;
+            text-decoration: none;
+            animation: pulse-wa 2.5s infinite;
+            transition: transform var(--transition);
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.12);
+            animation: none;
+            box-shadow: 0 6px 28px rgba(37,211,102,0.6);
+        }
+        .whatsapp-float svg { width: 32px; height: 32px; fill: white; }
+
+        @keyframes pulse-wa {
+            0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4); }
+            50%       { box-shadow: 0 4px 30px rgba(37,211,102,0.7), 0 0 0 10px rgba(37,211,102,0.12); }
+        }
+
+        /* === RESPONSIVE 1024px === */
+        @media (max-width: 1024px) {
+            .hero-inner { grid-template-columns: 1fr; }
+            .hero-card { display: none; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .process-steps { grid-template-columns: repeat(2, 1fr); }
+            .process-steps::before { display: none; }
+            .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-top { grid-template-columns: 1fr 1fr; }
+            .footer-brand { grid-column: 1 / -1; }
+        }
+
+        /* === RESPONSIVE 768px === */
+        @media (max-width: 768px) {
+            .header-inner { height: 64px; }
+            nav { display: none; }
+            .hero-inner { padding: 60px 20px; text-align: center; }
+            .hero-buttons { justify-content: center; }
+            .hero-stats { grid-template-columns: repeat(3, 1fr); }
+            .about-grid { grid-template-columns: 1fr; }
+            .testimonials-grid { grid-template-columns: 1fr; }
+            .footer-top { grid-template-columns: 1fr; gap: 32px; }
+            .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+        }
+
+        /* === RESPONSIVE 480px === */
+        @media (max-width: 480px) {
+            #hero, #about, #services, #process, #social-proof, #cta { padding: 70px 16px; }
+            .services-grid { grid-template-columns: 1fr; }
+            .process-steps { grid-template-columns: 1fr; }
+            .hero-stats { grid-template-columns: 1fr; gap: 16px; }
+            .cta-buttons { flex-direction: column; align-items: center; }
+            .btn-cta, .btn-cta-outline { width: 100%; max-width: 320px; justify-content: center; }
+            .whatsapp-float { bottom: 20px; left: 20px; width: 52px; height: 52px; }
+            .whatsapp-float svg { width: 26px; height: 26px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+    <div class="header-inner">
+        <a href="#" class="logo">
+            <div class="logo-icon">י.כ</div>
+            <div>
+                <div class="logo-name">יוסי כהן</div>
+                <div class="logo-subtitle">יועץ פיננסי עצמאי</div>
+            </div>
+        </a>
+        <nav>
+            <a href="#about">אודות</a>
+            <a href="#services">שירותים</a>
+            <a href="#process">תהליך</a>
+            <a href="#social-proof">המלצות</a>
+            <a href="#cta" class="nav-cta">לתיאום שיחה חינם ←</a>
+        </nav>
+    </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section id="hero">
+    <div class="hero-inner">
+        <div class="hero-content">
+            <div class="hero-badge fade-in">★ ייעוץ פיננסי מקצועי ואמין</div>
+            <h1 class="hero-title fade-in">
+                הכסף שלך עובד בשבילך —<br>
+                <span>אתה רק צריך מישהו שמבין</span>
+            </h1>
+            <p class="hero-subtitle fade-in">
+                יוסי כהן, יועץ פיננסי עצמאי עם ניסיון של מעל 15 שנה.
+                מתמחה בתכנון פנסיוני, ליווי השקעות ותכנון פרישה לעצמאים ושכירים בכירים.
+            </p>
+            <div class="hero-buttons fade-in">
+                <a href="#cta" class="btn-primary">קביעת שיחת ייעוץ ראשונית חינם ←</a>
+                <a href="#services" class="btn-secondary">למה לבחור ביוסי?</a>
+            </div>
+            <div class="hero-stats fade-in">
+                <div class="stat-item">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">שנות ניסיון</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">לקוחות מרוצים</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">שביעות רצון</div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-card fade-in">
+            <div class="hero-card-avatar">י</div>
+            <h3>יוסי כהן</h3>
+            <p class="card-role">יועץ פיננסי עצמאי מוסמך</p>
+            <ul class="card-features">
+                <li>תכנון פנסיוני מקיף</li>
+                <li>ליווי השקעות אישי</li>
+                <li>ייעוץ מס לעצמאים</li>
+                <li>תכנון פרישה מושכל</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about">
+    <div class="section-inner">
+        <span class="section-tag">אודות יוסי</span>
+        <h2 class="section-title">ייעוץ שמגיע מניסיון אמיתי</h2>
+        <p class="section-subtitle">מאמין שכל אחד ראוי לתכנון פיננסי שקוף, ברור ומותאם אישית.</p>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>
+                    עם למעלה מ-15 שנות ניסיון בעולם הפיננסי, ליוויתי מאות משפחות, עצמאים ושכירים בכירים
+                    בדרכם לעצמאות כלכלית ופרישה בטוחה. הגישה שלי פשוטה — לשים אותך במרכז,
+                    להסביר כל צעד בשפה ברורה, ולבנות יחד אסטרטגיה שמתאימה בדיוק לחיים שלך.
+                </p>
+                <p>
+                    אני לא מוכר מוצרים — אני מייעץ. זה אומר שהאינטרס היחיד שלי הוא שתגיע לפנסיה
+                    הטובה ביותר האפשרית, עם ידיעה שכל שקל עבד בשבילך.
+                </p>
+                <div class="about-highlights">
+                    <div class="highlight-item fade-in">
+                        <div class="highlight-icon">🎓</div>
+                        <div class="highlight-content">
+                            <h4>השכלה ורישיון</h4>
+                            <p>יועץ פנסיוני מוסמך, בעל רישיון משרד האוצר</p>
+                        </div>
+                    </div>
+                    <div class="highlight-item fade-in">
+                        <div class="highlight-icon">🤝</div>
+                        <div class="highlight-content">
+                            <h4>ייעוץ אובייקטיבי לחלוטין</h4>
+                            <p>עצמאי — ללא שיוך לחברות ביטוח או השקעות</p>
+                        </div>
+                    </div>
+                    <div class="highlight-item fade-in">
+                        <div class="highlight-icon">📍</div>
+                        <div class="highlight-content">
+                            <h4>זמין עבורך</h4>
+                            <p>פגישות פיזיות ווירטואליות לפי הנוחות שלך</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-card fade-in">
+                <div class="about-avatar">י</div>
+                <h3>יוסי כהן</h3>
+                <p class="about-role">יועץ פיננסי עצמאי</p>
+                <div class="credentials">
+                    <div class="credential-item">
+                        <div class="cred-dot"></div>
+                        יועץ פנסיוני מוסמך — רישיון משרד האוצר
+                    </div>
+                    <div class="credential-item">
+                        <div class="cred-dot"></div>
+                        מומחה בתכנון פרישה לעצמאים ושכירים בכירים
+                    </div>
+                    <div class="credential-item">
+                        <div class="cred-dot"></div>
+                        15+ שנות ניסיון בשוק ההון הישראלי
+                    </div>
+                    <div class="credential-item">
+                        <div class="cred-dot"></div>
+                        500+ לקוחות מרוצים
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section id="services">
+    <div class="section-inner">
+        <span class="section-tag">השירותים שלי</span>
+        <h2 class="section-title">מה אני עושה עבורך</h2>
+        <p class="section-subtitle">ייעוץ מקיף בכל תחומי התכנון הפיננסי האישי</p>
+        <div class="services-grid">
+            <div class="service-card fade-in">
+                <div class="service-icon">🏦</div>
+                <h3>תכנון פנסיוני</h3>
+                <p>בדיקה מקיפה של כל קרנות הפנסיה, קופות הגמל וביטוחי המנהלים. בנייה של מסלול חיסכון אופטימלי שיעבוד בשבילך לטווח ארוך.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">📈</div>
+                <h3>ליווי השקעות</h3>
+                <p>בניית תיק השקעות מותאם לפרופיל הסיכון שלך, עם מעקב שוטף, עדכונים ובחינה מחדש לאורך השנים.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">💼</div>
+                <h3>ייעוץ מס לעצמאים</h3>
+                <p>תכנון מס חכם לעצמאים — ניצול מקסימלי של הטבות בחיסכון פנסיוני, קרנות השתלמות והפחתת נטל המס.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">🌅</div>
+                <h3>תכנון פרישה</h3>
+                <p>בניית תוכנית פרישה מפורטת — מתי, איך, וכמה? פרישה שמחה ובטוחה מתחילה בתכנון נכון שנים מראש.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== PROCESS ===== -->
+<section id="process">
+    <div class="section-inner">
+        <span class="section-tag">איך עובדים יחד?</span>
+        <h2 class="section-title">תהליך פשוט בארבעה שלבים</h2>
+        <p class="section-subtitle">מפגישת ההיכרות ועד לתוכנית הפיננסית המלאה שלך</p>
+        <div class="process-steps">
+            <div class="step-item fade-in">
+                <div class="step-number">1</div>
+                <h3>שיחת היכרות חינם</h3>
+                <p>מדברים על המצב הנוכחי, היעדים שלך ואיפה אפשר לשפר. ללא עלות, ללא התחייבות.</p>
+            </div>
+            <div class="step-item fade-in">
+                <div class="step-number">2</div>
+                <h3>מיפוי ואבחון</h3>
+                <p>בדיקה מעמיקה של כל הנכסים, החיסכונות וההתחייבויות הקיימות שלך.</p>
+            </div>
+            <div class="step-item fade-in">
+                <div class="step-number">3</div>
+                <h3>בניית תוכנית</h3>
+                <p>מציג לך תוכנית פיננסית ברורה ופשוטה, עם המלצות ספציפיות מותאמות אישית.</p>
+            </div>
+            <div class="step-item fade-in">
+                <div class="step-number">4</div>
+                <h3>ליווי שוטף</h3>
+                <p>לא נעלם אחרי הפגישה — ממשיכים לבדוק, לעדכן ולהתאים לאורך כל הדרך.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== SOCIAL PROOF ===== -->
+<section id="social-proof">
+    <div class="section-inner">
+        <span class="section-tag">מה אומרים הלקוחות?</span>
+        <h2 class="section-title">500+ לקוחות שינו את התמונה הפיננסית שלהם</h2>
+        <p class="section-subtitle">ביקורות אמיתיות מלקוחות שבנו עתיד פיננסי טוב יותר</p>
+        <div class="testimonials-grid">
+            <div class="testimonial-card fade-in">
+                <div class="stars">★★★★★</div>
+                <blockquote>
+                    "יוסי הציל לי את הפנסיה. גיליתי שאני משלם דמי ניהול כפולים ואיש לא אמר לי.
+                    תוך חצי שנה חסכנו עשרות אלפי שקלים. מומלץ בחום!"
+                </blockquote>
+                <div class="testimonial-author">
+                    <div class="author-avatar">ד.מ</div>
+                    <div class="author-info">
+                        <strong>דוד מזרחי</strong>
+                        <span>מהנדס תוכנה עצמאי, גיל 48</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card fade-in">
+                <div class="stars">★★★★★</div>
+                <blockquote>
+                    "בנינו יחד תוכנית פרישה שמאפשרת לי לפרוש בגיל 60. ידעתי שאפשר,
+                    רק לא ידעתי איך. יוסי עשה את זה ברור ופשוט."
+                </blockquote>
+                <div class="testimonial-author">
+                    <div class="author-avatar">ר.ל</div>
+                    <div class="author-info">
+                        <strong>רחל לוי</strong>
+                        <span>מנהלת שיווק בכירה, גיל 52</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card fade-in">
+                <div class="stars">★★★★★</div>
+                <blockquote>
+                    "כעצמאי לא הבנתי כלום בקרן השתלמות ופנסיה. יוסי הסביר בסבלנות
+                    וחסך לי המון כסף במס. ממליץ לכל עצמאי!"
+                </blockquote>
+                <div class="testimonial-author">
+                    <div class="author-avatar">א.ש</div>
+                    <div class="author-info">
+                        <strong>אורן שניידר</strong>
+                        <span>עצמאי בתחום הייעוץ, גיל 41</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section id="cta">
+    <div class="section-inner">
+        <div class="cta-box">
+            <span class="section-tag">מוכן להתחיל?</span>
+            <h2 class="section-title">שיחת ייעוץ ראשונית — בחינם, ללא התחייבות</h2>
+            <p>
+                הצעד הראשון לתכנון פיננסי נכון הוא שיחה פשוטה. נדבר 30 דקות,
+                אבין את המצב שלך, ותצא עם כיוון ברור — בחינם, ובלי שום לחץ.
+            </p>
+            <div class="cta-buttons fade-in">
+                <a href="https://wa.me/972500000000?text=שלום יוסי, אני מעוניין בשיחת ייעוץ ראשונית חינם" class="btn-cta">
+                    📅 לקביעת שיחה חינם עכשיו
+                </a>
+                <a href="tel:050-0000000" class="btn-cta-outline">
+                    📞 050-0000000
+                </a>
+            </div>
+            <p class="cta-note">ללא עלות · ללא התחייבות · מענה תוך 24 שעות</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div class="logo">
+                    <div class="logo-icon">י.כ</div>
+                    <div>
+                        <div class="logo-name">יוסי כהן</div>
+                        <div class="logo-subtitle">יועץ פיננסי עצמאי</div>
+                    </div>
+                </div>
+                <p>יועץ פנסיוני מוסמך ועצמאי. מתמחה בתכנון פנסיוני, ליווי השקעות ותכנון פרישה לעצמאים ושכירים בכירים.</p>
+            </div>
+            <div class="footer-col">
+                <h4>ניווט מהיר</h4>
+                <ul>
+                    <li><a href="#about">אודות</a></li>
+                    <li><a href="#services">שירותים</a></li>
+                    <li><a href="#process">תהליך</a></li>
+                    <li><a href="#social-proof">המלצות</a></li>
+                    <li><a href="#cta">יצירת קשר</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>יצירת קשר</h4>
+                <div class="footer-contact-item">📞 050-0000000</div>
+                <div class="footer-contact-item">✉️ yossi@example.com</div>
+                <div class="footer-contact-item">📍 תל אביב והסביבה</div>
+            </div>
+        </div>
+        <hr class="footer-divider">
+        <div class="footer-bottom">
+            <span>© 2025 יוסי כהן — יועץ פיננסי עצמאי. כל הזכויות שמורות.</span>
+            <span>מחזיק ברישיון יועץ פנסיוני ממשרד האוצר</span>
+        </div>
+    </div>
+</footer>
+
+<!-- ===== WHATSAPP FLOAT ===== -->
+<a href="https://wa.me/972500000000?text=שלום יוסי, אני מעוניין בשיחת ייעוץ ראשונית חינם"
+   class="whatsapp-float"
+   target="_blank"
+   rel="noopener"
+   aria-label="שלח הודעה בוואטסאפ">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+</a>
+
+<script>
+    document.documentElement.classList.add('js-loaded');
+    const io = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
