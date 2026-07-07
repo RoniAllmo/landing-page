@@ -218,8 +218,20 @@
     }
     .logo {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
+      align-items: center;
+      gap: 12px;
       line-height: 1.2;
+    }
+    .logo-image {
+      height: 80px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+    .logo-text {
+      display: flex;
+      flex-direction: column;
     }
     .logo-name {
       font-size: 1.25rem;
@@ -1139,8 +1151,15 @@
     <div class="container">
       <div class="header-inner">
         <a href="#hero" class="logo" aria-label="יעל כהן — עורכת דין משפחה, חזרה לעמוד הבית">
-          <span class="logo-name">יעל כהן</span>
-          <span class="logo-title">עורכת דין — דיני משפחה</span>
+          <img
+            src="https://www.yael-law.co.il/wp-content/uploads/2022/01/%D7%99%D7%A2%D7%9C-%D7%9B%D7%94%D7%9F-%D7%A2%D7%95%D7%A8%D7%9B%D7%AA-%D7%93%D7%99%D7%9F.jpg"
+            alt="יעל כהן עורכת דין"
+            class="logo-image"
+          />
+          <div class="logo-text">
+            <span class="logo-name">יעל כהן</span>
+            <span class="logo-title">עורכת דין — דיני משפחה</span>
+          </div>
         </a>
 
         <nav role="navigation" aria-label="ניווט ראשי">
