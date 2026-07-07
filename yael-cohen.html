@@ -1,0 +1,1434 @@
+```html
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>יעל כהן | עורכת דין משפחה — גירושין, משמורת, מזונות</title>
+  <meta name="description" content="יעל כהן, עורכת דין משפחה מנוסה. מתמחה בגירושין, משמורת ילדים, מזונות והסכמי ממון. שיחת ייעוץ ראשונית חינם — צרו קשר עכשיו." />
+  <meta property="og:title" content="יעל כהן | עורכת דין משפחה" />
+  <meta property="og:description" content="מתמחה בגירושין, משמורת, מזונות והסכמי ממון. שיחת ייעוץ ראשונית חינם." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="he_IL" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    /* ===== CSS VARIABLES ===== */
+    :root {
+      --primary: #2C3E6B;
+      --primary-light: #3a5298;
+      --primary-dark: #1a2540;
+      --gold: #C9A84C;
+      --gold-light: #e0c068;
+      --gold-dark: #a8893a;
+      --white: #ffffff;
+      --off-white: #f8f7f5;
+      --light-gray: #f1f0ee;
+      --mid-gray: #e0ddd8;
+      --text-dark: #1a1a2e;
+      --text-body: #3d3d52;
+      --text-muted: #7a7a95;
+      --shadow-sm: 0 2px 8px rgba(44,62,107,0.08);
+      --shadow-md: 0 8px 32px rgba(44,62,107,0.14);
+      --shadow-lg: 0 20px 60px rgba(44,62,107,0.18);
+      --shadow-xl: 0 32px 80px rgba(44,62,107,0.22);
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-xl: 32px;
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Heebo', sans-serif;
+      color: var(--text-body);
+      background: var(--white);
+      overflow-x: hidden;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* ===== FADE-IN ANIMATION PATTERN ===== */
+    .fade-in {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .js-loaded .fade-in {
+      opacity: 0;
+      transform: translateY(28px);
+    }
+    .fade-in.visible {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+
+    .fade-in-left {
+      opacity: 1;
+      transform: translateX(0);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .js-loaded .fade-in-left {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    .fade-in-left.visible {
+      opacity: 1 !important;
+      transform: translateX(0) !important;
+    }
+
+    .fade-in-right {
+      opacity: 1;
+      transform: translateX(0);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .js-loaded .fade-in-right {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    .fade-in-right.visible {
+      opacity: 1 !important;
+      transform: translateX(0) !important;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .fade-in, .fade-in-left, .fade-in-right {
+        transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+
+    /* ===== STAGGER DELAYS ===== */
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+    .delay-4 { transition-delay: 0.4s; }
+    .delay-5 { transition-delay: 0.5s; }
+    .delay-6 { transition-delay: 0.6s; }
+
+    /* ===== CONTAINER ===== */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ===== SECTION SPACING ===== */
+    section { padding: 96px 0; }
+
+    /* ===== SECTION LABEL ===== */
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(201,168,76,0.12);
+      border: 1px solid rgba(201,168,76,0.3);
+      color: var(--gold-dark);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 50px;
+      margin-bottom: 20px;
+    }
+
+    /* ===== BUTTONS ===== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 32px;
+      border-radius: var(--radius-sm);
+      font-family: 'Heebo', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: transform var(--transition), box-shadow var(--transition), background var(--transition), color var(--transition), border-color var(--transition);
+      white-space: nowrap;
+    }
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+    .btn-primary {
+      background: var(--gold);
+      color: var(--primary-dark);
+      box-shadow: 0 4px 20px rgba(201,168,76,0.35);
+    }
+    .btn-primary:hover {
+      background: var(--gold-light);
+      box-shadow: 0 10px 40px rgba(201,168,76,0.5);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border-color: rgba(255,255,255,0.5);
+    }
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.12);
+      border-color: var(--white);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+    .btn-outline-dark {
+      background: transparent;
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+    .btn-outline-dark:hover {
+      background: var(--primary);
+      color: var(--white);
+      box-shadow: 0 10px 30px rgba(44,62,107,0.25);
+    }
+
+    /* ===== HEADER ===== */
+    #header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      transition: background var(--transition), box-shadow var(--transition), backdrop-filter var(--transition);
+      background: transparent;
+    }
+    #header.scrolled {
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 2px 24px rgba(44,62,107,0.1);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+      gap: 24px;
+    }
+    .logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+    .logo-name {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--white);
+      transition: color var(--transition);
+    }
+    .logo-title {
+      font-size: 0.72rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.04em;
+      transition: color var(--transition);
+    }
+    #header.scrolled .logo-name { color: var(--primary); }
+    #header.scrolled .logo-title { color: var(--text-muted); }
+
+    nav { display: flex; align-items: center; gap: 4px; }
+    nav a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.85);
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      transition: color var(--transition), background var(--transition);
+    }
+    nav a:hover {
+      color: var(--white);
+      background: rgba(255,255,255,0.1);
+    }
+    #header.scrolled nav a { color: var(--text-body); }
+    #header.scrolled nav a:hover { color: var(--primary); background: var(--light-gray); }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .header-phone {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.9);
+      transition: color var(--transition);
+    }
+    #header.scrolled .header-phone { color: var(--primary); }
+    .header-cta {
+      font-size: 0.85rem;
+      padding: 10px 22px;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+      border: none;
+      background: none;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: all var(--transition);
+    }
+    #header.scrolled .hamburger span { background: var(--primary); }
+
+    /* ===== HERO ===== */
+    #hero {
+      min-height: 100vh;
+      background: linear-gradient(145deg, #1a2540 0%, var(--primary) 50%, #3a5298 100%);
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 140px 0 80px;
+      overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 20% 80%, rgba(201,168,76,0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 60% at 80% 20%, rgba(58,82,152,0.4) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(201,168,76,0.15);
+      border: 1px solid rgba(201,168,76,0.4);
+      color: var(--gold-light);
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 50px;
+      margin-bottom: 28px;
+    }
+    .hero-badge-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--gold);
+      border-radius: 50%;
+      animation: pulse-dot 2s infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    #hero h1 {
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+    }
+    #hero h1 span {
+      color: var(--gold);
+      position: relative;
+    }
+    #hero h1 span::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      right: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      border-radius: 2px;
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.75);
+      font-weight: 400;
+      margin-bottom: 40px;
+      max-width: 560px;
+      line-height: 1.75;
+    }
+    .hero-buttons {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 56px;
+    }
+    .hero-stats {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      backdrop-filter: blur(10px);
+      border-radius: var(--radius-md);
+      padding: 24px 32px;
+      max-width: 580px;
+    }
+    .stat-item {
+      flex: 1;
+      text-align: center;
+    }
+    .stat-item + .stat-item {
+      border-right: 1px solid rgba(255,255,255,0.15);
+    }
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat-label {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.65);
+      font-weight: 400;
+    }
+
+    .hero-image-wrap {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      top: 0;
+      width: 45%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .hero-emoji-scene {
+      font-size: 11rem;
+      line-height: 1;
+      opacity: 0.06;
+      user-select: none;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    /* ===== ABOUT ===== */
+    #about {
+      background: var(--off-white);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+    .about-visual {
+      position: relative;
+    }
+    .about-card {
+      background: var(--white);
+      border-radius: var(--radius-xl);
+      padding: 48px 40px;
+      box-shadow: var(--shadow-lg);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-card::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0; left: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--gold));
+    }
+    .about-avatar {
+      width: 120px;
+      height: 120px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      margin: 0 auto 20px;
+      box-shadow: 0 12px 40px rgba(44,62,107,0.25);
+    }
+    .about-card-name {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+    .about-card-role {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-weight: 400;
+      margin-bottom: 24px;
+    }
+    .about-card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+    }
+    .tag {
+      background: rgba(44,62,107,0.08);
+      color: var(--primary);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: 50px;
+    }
+    .about-float-badge {
+      position: absolute;
+      bottom: 32px;
+      left: -20px;
+      background: var(--gold);
+      color: var(--primary-dark);
+      font-size: 0.78rem;
+      font-weight: 800;
+      padding: 12px 18px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+      text-align: center;
+      line-height: 1.3;
+    }
+
+    .about-content h2 {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 900;
+      color: var(--primary);
+      line-height: 1.2;
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+    .about-content p {
+      color: var(--text-body);
+      font-size: 1rem;
+      margin-bottom: 16px;
+      line-height: 1.8;
+    }
+    .about-values {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 32px;
+    }
+    .value-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      background: var(--white);
+      padding: 20px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .value-item:hover {
+      transform: translateX(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    .value-icon {
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+    .value-text strong {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 2px;
+    }
+    .value-text span {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* ===== SERVICES ===== */
+    #services {
+      background: var(--white);
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .section-header h2 {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 900;
+      color: var(--primary);
+      line-height: 1.2;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+    .section-header p {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 540px;
+      margin: 0 auto;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+    .service-card {
+      background: var(--white);
+      border: 1px solid var(--mid-gray);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+      position: relative;
+      overflow: hidden;
+      cursor: default;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; right: 0; left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--gold));
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform var(--transition);
+    }
+    .service-card:hover {
+      transform: scale(1.02) translateY(-4px);
+      box-shadow: var(--shadow-xl);
+      border-color: transparent;
+    }
+    .service-card:hover::before {
+      transform: scaleX(1);
+    }
+    .service-icon-wrap {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, rgba(44,62,107,0.08), rgba(44,62,107,0.04));
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      transition: background var(--transition), transform var(--transition);
+    }
+    .service-card:hover .service-icon-wrap {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      transform: scale(1.1) rotate(-3deg);
+    }
+    .service-card h3 {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+    .service-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .service-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--primary);
+      transition: color var(--transition), gap var(--transition);
+    }
+    .service-link:hover {
+      color: var(--gold-dark);
+      gap: 10px;
+    }
+
+    /* ===== PROCESS ===== */
+    #process {
+      background: linear-gradient(180deg, var(--off-white) 0%, var(--light-gray) 100%);
+    }
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
+      margin-top: 16px;
+    }
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 36px;
+      right: 12.5%;
+      left: 12.5%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--primary), var(--gold));
+      z-index: 0;
+    }
+    .process-step {
+      text-align: center;
+      padding: 0 16px;
+      position: relative;
+      z-index: 1;
+    }
+    .step-number-wrap {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 72px;
+      height: 72px;
+      background: var(--white);
+      border: 2px solid var(--mid-gray);
+      border-radius: 50%;
+      margin: 0 auto 24px;
+      box-shadow: var(--shadow-md);
+      transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+    }
+    .process-step:hover .step-number-wrap {
+      border-color: var(--gold);
+      transform: scale(1.08);
+      box-shadow: 0 8px 30px rgba(201,168,76,0.25);
+    }
+    .step-num {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--primary);
+      line-height: 1;
+    }
+    .step-badge {
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      width: 22px;
+      height: 22px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.6rem;
+      font-weight: 900;
+      color: var(--primary-dark);
+    }
+    .process-step h3 {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+    .process-step p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* ===== SOCIAL PROOF ===== */
+    #social-proof {
+      background: var(--white);
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-bottom: 72px;
+    }
+    .testimonial-card {
+      background: var(--off-white);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      border: 1px solid var(--mid-gray);
+      transition: transform var(--transition), box-shadow var(--transition);
+      position: relative;
+    }
+    .testimonial-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+    .quote-icon {
+      font-size: 3rem;
+      line-height: 1;
+      color: var(--gold);
+      opacity: 0.4;
+      position: absolute;
+      top: 20px;
+      left: 24px;
+      font-family: serif;
+      font-weight: 900;
+    }
+    .stars {
+      display: flex;
+      gap: 3px;
+      margin-bottom: 16px;
+    }
+    .star { color: var(--gold); font-size: 0.9rem; }
+    .testimonial-text {
+      font-size: 0.92rem;
+      color: var(--text-body);
+      line-height: 1.75;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .author-avatar {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .author-name {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--primary);
+    }
+    .author-detail {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .numbers-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      background: var(--primary);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+    }
+    .number-item {
+      background: var(--primary);
+      padding: 40px 24px;
+      text-align: center;
+      transition: background var(--transition);
+    }
+    .number-item:hover {
+      background: var(--primary-light);
+    }
+    .number-value {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .number-label {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.65);
+      font-weight: 400;
+    }
+
+    /* ===== CTA ===== */
+    #cta-section {
+      background: linear-gradient(145deg, #1a2540 0%, var(--primary) 60%, #2a4a8a 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    #cta-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 50% 80% at 90% 50%, rgba(201,168,76,0.1) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 60% at 10% 50%, rgba(58,82,152,0.3) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .cta-inner {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    #cta-section h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+    #cta-section h2 span { color: var(--gold); }
+    #cta-section p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.72);
+      margin-bottom: 40px;
+      line-height: 1.75;
+    }
+    .cta-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    .cta-trust {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.55);
+    }
+    .trust-check {
+      color: var(--gold);
+      font-size: 0.9rem;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #0f1520;
+      padding: 72px 0 0;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .footer-logo-name {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+    .footer-logo-role {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 16px;
+    }
+    .footer-desc {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.75;
+      margin-bottom: 24px;
+    }
+    .social-links {
+      display: flex;
+      gap: 10px;
+    }
+    .social-link {
+      width: 38px;
+      height: 38px;
+      background: rgba(255,255,255,0.07);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      transition: background var(--transition), transform var(--transition);
+    }
+    .social-link:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+    }
+    .footer-col h4 {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 20px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .footer-col ul li {
+      margin-bottom: 10px;
+    }
+    .footer-col ul li a {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.45);
+      transition: color var(--transition);
+    }
+    .footer-col ul li a:hover { color: var(--gold); }
+    .footer-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .footer-contact-icon {
+      font-size: 0.9rem;
+      margin-top: 2px;
+      opacity: 0.6;
+    }
+    .footer-contact-text {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.6;
+    }
+    .footer-bottom {
+      padding: 24px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .footer-copyright {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.3);
+    }
+    .footer-legal {
+      display: flex;
+      gap: 20px;
+    }
+    .footer-legal a {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.3);
+      transition: color var(--transition);
+    }
+    .footer-legal a:hover { color: rgba(255,255,255,0.6); }
+
+    /* ===== WHATSAPP FLOAT ===== */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 32px;
+      left: 32px;
+      z-index: 999;
+      width: 60px;
+      height: 60px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      box-shadow: 0 6px 24px rgba(37,211,102,0.4);
+      animation: wa-pulse 2.5s infinite;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.12);
+      box-shadow: 0 10px 40px rgba(37,211,102,0.6);
+      animation: none;
+    }
+    @keyframes wa-pulse {
+      0%, 100% { box-shadow: 0 6px 24px rgba(37,211,102,0.4), 0 0 0 0 rgba(37,211,102,0.3); }
+      50% { box-shadow: 0 6px 24px rgba(37,211,102,0.4), 0 0 0 14px rgba(37,211,102,0); }
+    }
+
+    /* ===== MOBILE NAV ===== */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 80px;
+      right: 0;
+      left: 0;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 24px;
+      box-shadow: var(--shadow-lg);
+      z-index: 999;
+      flex-direction: column;
+      gap: 8px;
+      transform: translateY(-20px);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform var(--transition), opacity var(--transition);
+    }
+    .mobile-nav.open {
+      display: flex;
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: all;
+    }
+    .mobile-nav a {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--primary);
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      transition: background var(--transition);
+    }
+    .mobile-nav a:hover { background: var(--light-gray); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .about-grid { grid-template-columns: 1fr; gap: 48px; }
+      .about-visual { max-width: 400px; margin: 0 auto; }
+      .process-steps::before { display: none; }
+      .process-steps { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      section { padding: 72px 0; }
+      nav { display: none; }
+      .header-phone { display: none; }
+      .hamburger { display: flex; }
+      .services-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .numbers-grid { grid-template-columns: repeat(2, 1fr); }
+      .process-steps { grid-template-columns: 1fr 1fr; }
+      .hero-buttons { flex-direction: column; align-items: flex-start; }
+      .hero-stats { flex-direction: column; gap: 24px; padding: 24px; }
+      .stat-item + .stat-item { border-right: none; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 24px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+
+    @media (max-width: 480px) {
+      .container { padding: 0 16px; }
+      #hero { padding: 120px 0 64px; }
+      .hero-stats { display: none; }
+      .numbers-grid { grid-template-columns: 1fr 1fr; }
+      .process-steps { grid-template-columns: 1fr; }
+      .header-cta { display: none; }
+      .cta-buttons { flex-direction: column; }
+      .cta-buttons .btn { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header id="header" role="banner">
+    <div class="container">
+      <div class="header-inner">
+        <a href="#hero" class="logo" aria-label="יעל כהן — עורכת דין משפחה, חזרה לעמוד הבית">
+          <span class="logo-name">יעל כהן</span>
+          <span class="logo-title">עורכת דין — דיני משפחה</span>
+        </a>
+
+        <nav role="navigation" aria-label="ניווט ראשי">
+          <a href="#about">אודות</a>
+          <a href="#services">שירותים</a>
+          <a href="#process">תהליך</a>
+          <a href="#social-proof">המלצות</a>
+          <a href="#cta-section">צרו קשר</a>
+        </nav>
+
+        <div class="header-actions">
+          <a href="tel:[PHONE]" class="header-phone" aria-label="התקשרו אלינו">
+            <span role="img" aria-hidden="true">📞</span>
+            <span>[PHONE]</span>
+          </a>
+          <a href="#cta-section" class="btn btn-primary header-cta" aria-label="קבע שיחת ייעוץ חינם">
+            ייעוץ חינם
+          </a>
+          <button class="hamburger" id="hamburger" aria-label="פתח תפריט ניווט" aria-expanded="false" aria-controls="mobile-nav">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <nav class="mobile-nav" id="mobile-nav" aria-label="ניווט נייד">
+      <a href="#about" onclick="closeMobileNav()">אודות</a>
+      <a href="#services" onclick="closeMobileNav()">שירותים</a>
+      <a href="#process" onclick="closeMobileNav()">תהליך</a>
+      <a href="#social-proof" onclick="closeMobileNav()">המלצות</a>
+      <a href="#cta-section" onclick="closeMobileNav()">צרו קשר</a>
+      <a href="tel:[PHONE]" onclick="closeMobileNav()">📞 [PHONE]</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ===== HERO ===== -->
+    <section id="hero" role="region" aria-label="כותרת ראשית">
+      <div class="hero-grid-bg" aria-hidden="true"></div>
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-badge fade-in">
+            <span class="hero-badge-dot" aria-hidden="true"></span>
+            עורכת דין מנוסה בדיני משפחה
+          </div>
+
+          <h1 class="fade-in delay-1">
+            בצמתי החיים הקשים —<br/>
+            <span>לצדכם עם ניסיון</span><br/>
+            ועם לב
+          </h1>
+
+          <p class="hero-subtitle fade-in delay-2">
+            יעל כהן, עורכת דין משפחה מומחית, מלווה אתכם בתהליכי גירושין, משמורת ילדים ומזונות — בגישה אנושית, מקצועית ומכוונת תוצאות.
+          </p>
+
+          <div class="hero-buttons fade-in delay-3">
+            <a href="#cta-section" class="btn btn-primary" aria-label="קבע שיחת ייעוץ ראשונית חינם">
+              <span>שיחת ייעוץ חינם</span>
+              <span aria-hidden="true">←</span>
+            </a>
+            <a href="#services" class="btn btn-outline" aria-label="גלה את השירותים שלנו">
+              <span>השירותים שלנו</span>
+            </a>
+          </div>
+
+          <div class="hero-stats fade-in delay-4" role="list" aria-label="נתונים מרשימים">
+            <div class="stat-item" role="listitem">
+              <div class="stat-number">+15</div>
+              <div class="stat-label">שנות ניסיון</div>
+            </div>
+            <div class="stat-item" role="listitem">
+              <div class="stat-number">+800</div>
+              <div class="stat-label">תיקים שטופלו</div>
+            </div>
+            <div class="stat-item" role="listitem">
+              <div class="stat-number">97%</div>
+              <div class="stat-label">שביעות רצון</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-image-wrap" aria-hidden="true">
+        <div class="hero-emoji-scene" role="img">⚖️</div>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about" role="region" aria-label="אודות יעל כהן">
+      <div class="container">
+        <div class="about-grid">
+
+          <div class="about-visual fade-in-right">
+            <div class="about-card">
+              <div class="about-avatar" role="img" aria-label="תמונת פרופיל">👩‍⚖️</div>
+              <div class="about-card-name">יעל כהן, עו"ד</div>
+              <div class="about-card-role">עורכת דין דיני משפחה | חבר לשכת עורכי הדין</div>
+              <div class="about-card-tags">
+                <span class="tag">גירושין</span>
+                <span class="tag">משמורת</span>
+                <span class="tag">מזונות</span>
+                <span class="tag">הסכמי ממון</span>
+                <span class="tag">בית משפט לענייני משפחה</span>
+              </div>
+            </div>
+            <div class="about-float-badge" aria-label="15 שנות ניסיון">
+              ✦ +15 שנות<br/>ניסיון
+            </div>
+          </div>
+
+          <div class="about-content">
+            <div class="section-label fade-in">אודות</div>
+            <h2 class="fade-in delay-1">
+              משפטים זה עסקים —<br/>אבל המשפחה זה חיים
+            </h2>
+            <p class="fade-in delay-2">
+              אני יעל כהן, עורכת דין עם ניסיון של למעלה מ-15 שנה בדיני משפחה. לאורך השנים ליוויתי מאות משפחות בחלק מהרגעים הקשים ביותר בחייהן.
+            </p>
+            <p class="fade-in delay-3">
+              הגישה שלי משלבת קשיחות משפטית עם רגישות אנושית — כי מאחורי כל תיק עומדים ילדים, הורים ועתיד שלם.
+            </p>
+
+            <div class="about-values" role="list">
+              <div class="value-item fade-in delay-2" role="listitem">
+                <div class="value-icon" role="img" aria-hidden="true">🎯</div>
+                <div class="value-text">
+                  <strong>ממוקדת תוצאות</strong>
+                  <span>כל אסטרטגיה משפטית בנויה כדי להשיג עבורכם את המקסימום האפשרי</span>
+                </div>
+              </div>
+              <div class="value-item fade-in delay-3" role="listitem">
+                <div class="value-icon" role="img" aria-hidden="true">🤝</div>
+                <div class="value-text">
+                  <strong>זמינות אישית</strong>
+                  <span>אתם מקבלים גישה ישירה אליי לאורך כל התהליך, לא רק לסגל</span>
+                </div>
+              </div>
+              <div class="value-item fade-in delay-4" role="listitem">
+                <div class="value-icon" role="img" aria-hidden="true">🛡️</div>
+                <div class="value-text">
+                  <strong>סודיות מלאה</strong>
+                  <span>כל פרט שתשתפו נשמר בחיסיון מוחלט ובכבוד רב</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
+    <section id="services" role="region" aria-label="תחומי עיסוק">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-label fade-in">השירותים שלנו</div>
+          <h2 class="fade-in delay-1">תחומי ההתמחות שלנו</h2>
+          <p class="fade-in delay-2">ייצוג מקצועי ואישי בכל ההליכים המשפטיים הקשורים לדיני משפחה</p>
+        </div>
+
+        <div class="services-grid">
+
+          <article class="service-card fade-in delay-1" aria-label="ייצוג בגירושין">
+            <div class="service-icon-wrap" role="img" aria-hidden="true">⚖️</div>
+            <h3>ייצוג בגירושין</h3>
+            <p>ליווי מקצועי מלא בהליכי גירושין — בבית משפט לענייני משפחה ובבית הדין הרבני. ניהול מו"מ, הסכמות וסיוע בכל שלב עד לסגירת התיק.</p>
+            <a href="#cta-section" class="service-link" aria-label="פרטים נוספים על ייצוג בגירושין">
+              <span>לפרטים נוספים</span>
+              <span aria-hidden="true">←</span>
+            </a>
+          </article>
+
+          <article class="service-card fade-in delay-2" aria-label="הסכמי ממון">
+            <div class="service-icon-wrap" role="img" aria-hidden="true">📋</div>
+            <h3>הסכמי ממון</h3>
+            <p>עריכה ואימות הסכמי ממון לפני נישואין ובמהלכם. הגנה על הנכסים שלכם, הסדרת ירושות וחלוקת רכוש בדרך הוגנת ומוסכמת.</p>
+            <a href="#cta-section" class="service-link" aria-label="פרטים נוספים על הסכמי ממון">
+              <span>לפרטים נוספים</span>
+              <span aria-hidden="true">←</span>
+            </a>
+          </article>
+
+          <article class="service-card fade-in delay-3" aria-label="משמורת ילדים">
+            <div class="service-icon-wrap" role="img" aria-hidden="true">👨‍👩‍👧</div>
+            <h3>משמורת ילדים</h3>
+            <p>קביעת הסדרי משמורת ואחזקה תוך שמירה על טובת הילד. ייצוג בסכסוכי משמורת, שינוי הסדרים קיימים ועיגון הזכויות ההוריות.</p>
+            <a href="#cta-section" class="service-link" aria-label="פרטים נוספים על משמורת ילדים">
+              <span>לפרטים נוספים</span>
+              <span aria-hidden="true">←</span>
+            </a>
+          </article>
+
+          <article class="service-card fade-in delay-4" aria-label="מזונות">
+            <div class="service-icon-wrap" role="img" aria-hidden="true">💼</div>
+            <h3>מזונות ילדים ובן/בת זוג</h3>
+            <p>תביעות מזונות ילדים ותביעות מזונות אישה / בעל. ייצוג בתביעות לשינוי גובה המזונות והסכמים עדכניים בהתאם לנסיבות החיים.</p>
+            <a href="#cta-section" class="service-link" aria-label="פרטים נוספים על מזונות">
+              <span>לפרטים נוספים</span>
+              <span aria-hidden="true">←</span>
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROCESS ===== -->
+    <section id="process" role="region" aria-label="תהליך העבודה">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-label fade-in">תהליך העבודה</div>
+          <h2 class="fade-in delay-1">איך אנחנו עובדים יחד?</h2>
+          <p class="fade-in delay-2">תהליך ברור, שקוף ויעיל — מהפנייה הראשונה ועד לסגירת התיק</p>
+        </div>
+
+        <div class="process-steps" role="list">
+
+          <div class="process-step fade-in delay-1" role="listitem" aria-label="שלב 1: שיחת ייעוץ חינם">
+            <div class="step-number-wrap" aria-hidden="true">
+              <span class="step-num">01</span>
+              <span class="step-badge">✓</span>
+            </div>
+            <h3>שיחת ייעוץ חינם</h3>
+            <p>פגישה ראשונית ללא עלות, בה נבין יחד את המצב ואת האפשרויות העומדות בפניכם</p>
+          </div>
+
+          <div class="process-step fade-in delay-2" role="listitem" aria-label="שלב 2: בניית אסטרטגיה">
+            <div class="step-number-wrap" aria-hidden="true">
+              <span class="step-num">02</span>
+              <span class="step-badge">✓</span>
+            </div>
+            <h3>בניית אסטרטגיה</h3>
+            <p>גיבוש תוכנית פעולה מותאמת אישית — עם יעדים ברורים ולוח זמנים מוסכם</p>
+          </div>
+
+          <div class="process-step fade-in delay-3" role="listitem" aria-label="שלב 3: ייצוג פעיל">
+            <div class="step-number-wrap" aria-hidden="true">
+              <span class="step-num">03</span>
+              <span class="step-badge">✓</span>
+            </div>
+            <h3>ייצוג פעיל</h3>
+            <p>ניהול המשא ומתן, הגשת כתבי בי-דין וייצוג מלא בדיונים — עם עדכון שוטף</p>
+          </div>
+
+          <div class="process-step fade-in delay-4" role="listitem" aria-label="שלב 4: סגירה וסיכום">
+            <div class="step-number-wrap" aria-hidden="true">
+              <span class="step-num">04</span>
+              <span class="step-badge">✓</span>
+            </div>
+            <h3>סגירה וסיכום</h3>
+            <p>עיגון ההסכם / פסיקה, ריכוז כל המסמכים והבטחת יישום מלא של התוצאה</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SOCIAL PROOF ===== -->
+    <section id="social-proof" role="region" aria-label="המלצות לקוחות ונתונים">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-label fade-in">לקוחות מרוצים</div>
+          <h2 class="fade-in delay-1">מה הלקוחות שלנו אומרים</h2>
+          <p class="fade-in delay-2">מאות משפחות בטחו בנו בשעות הקשות ביותר</p>
+        </div>
+
+        <div class="testimonials-grid" role="list">
+
+          <article class="testimonial-card fade-in delay-1" role="listitem" aria-label="המלצה מאת דנה ל.">
+            <span class="quote-icon" aria-hidden="true">"</span>
+            <div class="stars" aria-label="דירוג 5 כוכבים">
+              <span class="star" aria-hidden="true">★</span>
+              <span class="star" aria-hidden="true">★</span>
+              <span class="star" aria-hidden="true">★</span>
+              <span class="star" aria-hidden="true">★</span>
+              <span class="star" aria-hidden="true">★</span>
+            </div>
+            <p class="testimonial-text">
+              "יעל הייתה לצדי בכל רגע קשה. היא לא רק ייצגה אותי מצוין בבית המשפט — היא גם הרגיעה אותי ונתנה לי תחושה שיש מישהי שבאמת אכפת לה."
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar" role="img" aria-label="תמונת לקוחה">👩</div>
+              <div>
+                <div class="author-name">דנה ל.</div>
+                <div class="author-detail">הליך גירושין ומשמורת</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial-card fade-in delay-2" role="listitem" aria-label="המלצה מאת רועי מ.">
+            <span class="quote-icon" aria-hidden="true">"</span>
+            <div class="stars" aria-label="דירוג 5 כוכבים">
