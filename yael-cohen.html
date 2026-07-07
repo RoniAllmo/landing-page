@@ -218,20 +218,17 @@
     }
     .logo {
       display: flex;
-      flex-direction: row;
-      align-items: center;
-      gap: 12px;
+      flex-direction: column;
       line-height: 1.2;
     }
-    .logo-image {
-      height: 80px;
+    .about-profile-img {
+      max-height: 200px;
       width: auto;
-      object-fit: contain;
+      border-radius: 50%;
       display: block;
-    }
-    .logo-text {
-      display: flex;
-      flex-direction: column;
+      margin: 0 auto 20px;
+      object-fit: cover;
+      box-shadow: 0 12px 40px rgba(44,62,107,0.25);
     }
     .logo-name {
       font-size: 1.25rem;
@@ -1151,15 +1148,8 @@
     <div class="container">
       <div class="header-inner">
         <a href="#hero" class="logo" aria-label="יעל כהן — עורכת דין משפחה, חזרה לעמוד הבית">
-          <img
-            src="https://www.yael-law.co.il/wp-content/uploads/2022/01/%D7%99%D7%A2%D7%9C-%D7%9B%D7%94%D7%9F-%D7%A2%D7%95%D7%A8%D7%9B%D7%AA-%D7%93%D7%99%D7%9F.jpg"
-            alt="יעל כהן עורכת דין"
-            class="logo-image"
-          />
-          <div class="logo-text">
-            <span class="logo-name">יעל כהן</span>
-            <span class="logo-title">עורכת דין — דיני משפחה</span>
-          </div>
+          <span class="logo-name">יעל כהן</span>
+          <span class="logo-title">עורכת דין — דיני משפחה</span>
         </a>
 
         <nav role="navigation" aria-label="ניווט ראשי">
@@ -1256,7 +1246,11 @@
 
           <div class="about-visual fade-in-right">
             <div class="about-card">
-              <div class="about-avatar" role="img" aria-label="תמונת פרופיל">👩‍⚖️</div>
+              <img
+                src="https://www.yael-law.co.il/wp-content/uploads/2022/01/%D7%99%D7%A2%D7%9C-%D7%9B%D7%94%D7%9F-%D7%A2%D7%95%D7%A8%D7%9B%D7%AA-%D7%93%D7%99%D7%9F.jpg"
+                alt="יעל כהן עורכת דין"
+                class="about-profile-img"
+              />
               <div class="about-card-name">יעל כהן, עו"ד</div>
               <div class="about-card-role">עורכת דין דיני משפחה | חבר לשכת עורכי הדין</div>
               <div class="about-card-tags">
