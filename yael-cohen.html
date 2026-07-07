@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
@@ -154,7 +153,7 @@
       align-items: center;
       gap: 8px;
       padding: 16px 32px;
-      border-radius: var(--radius-sm);
+      border-radius: var(--radius-lg);
       font-family: 'Heebo', sans-serif;
       font-size: 1rem;
       font-weight: 700;
@@ -296,7 +295,7 @@
     /* ===== HERO ===== */
     #hero {
       min-height: 100vh;
-      background: linear-gradient(145deg, #1a2540 0%, var(--primary) 50%, #3a5298 100%);
+      background: linear-gradient(145deg, #0d1829 0%, var(--primary) 35%, #3a5298 68%, #1e3a6a 100%);
       position: relative;
       display: flex;
       align-items: center;
@@ -308,8 +307,9 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 60% 50% at 20% 80%, rgba(201,168,76,0.08) 0%, transparent 70%),
-        radial-gradient(ellipse 50% 60% at 80% 20%, rgba(58,82,152,0.4) 0%, transparent 70%);
+        radial-gradient(ellipse 70% 60% at 15% 85%, rgba(201,168,76,0.16) 0%, transparent 65%),
+        radial-gradient(ellipse 55% 65% at 85% 15%, rgba(58,82,152,0.55) 0%, transparent 65%),
+        radial-gradient(ellipse 35% 40% at 50% 50%, rgba(100,140,200,0.12) 0%, transparent 70%);
       pointer-events: none;
     }
     .hero-grid-bg {
@@ -630,9 +630,10 @@
       transition: transform var(--transition);
     }
     .service-card:hover {
-      transform: scale(1.02) translateY(-4px);
-      box-shadow: var(--shadow-xl);
+      transform: scale(1.02) translateY(-8px);
+      box-shadow: var(--shadow-xl), 0 0 0 2px var(--primary) inset;
       border-color: transparent;
+      background: linear-gradient(160deg, var(--white) 0%, rgba(44,62,107,0.04) 100%);
     }
     .service-card:hover::before {
       transform: scaleX(1);
@@ -658,7 +659,9 @@
       font-weight: 800;
       color: var(--primary);
       margin-bottom: 10px;
+      transition: color var(--transition);
     }
+    .service-card:hover h3 { color: var(--primary-light); }
     .service-card p {
       font-size: 0.9rem;
       color: var(--text-muted);
@@ -1149,9 +1152,9 @@
         </nav>
 
         <div class="header-actions">
-          <a href="tel:[PHONE]" class="header-phone" aria-label="התקשרו אלינו">
+          <a href="tel:052-261-4444" class="header-phone" aria-label="התקשרו אלינו">
             <span role="img" aria-hidden="true">📞</span>
-            <span>[PHONE]</span>
+            <span>052-261-4444</span>
           </a>
           <a href="#cta-section" class="btn btn-primary header-cta" aria-label="קבע שיחת ייעוץ חינם">
             ייעוץ חינם
@@ -1171,7 +1174,7 @@
       <a href="#process" onclick="closeMobileNav()">תהליך</a>
       <a href="#social-proof" onclick="closeMobileNav()">המלצות</a>
       <a href="#cta-section" onclick="closeMobileNav()">צרו קשר</a>
-      <a href="tel:[PHONE]" onclick="closeMobileNav()">📞 [PHONE]</a>
+      <a href="tel:052-261-4444" onclick="closeMobileNav()">📞 052-261-4444</a>
     </nav>
   </header>
 
@@ -1432,3 +1435,206 @@
           <article class="testimonial-card fade-in delay-2" role="listitem" aria-label="המלצה מאת רועי מ.">
             <span class="quote-icon" aria-hidden="true">"</span>
             <div class="stars" aria-label="דירוג 5 כוכבים">
+              <span class="star" aria-hidden="true">★</span>
+              <span class="star" aria-hidden="true">★</span>
+              <span class="star" aria-hidden="true">★</span>
+              <span class="star" aria-hidden="true">★</span>
+              <span class="star" aria-hidden="true">★</span>
+            </div>
+            <p class="testimonial-text">
+              "יעל לא ויתרה לי ולא ויתרה על הזכויות שלי. בזכות הייצוג המסור שלה הצלחתי לקבל הסדר משמורת הוגן לילדים שלי."
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar" role="img" aria-label="תמונת לקוח">👨</div>
+              <div>
+                <div class="author-name">רועי מ.</div>
+                <div class="author-detail">הסכם גירושין ומשמורת משותפת</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial-card fade-in delay-3" role="listitem" aria-label="המלצה מאת מיכל ש.">
+            <span class="quote-icon" aria-hidden="true">"</span>
+            <div class="stars" aria-label="דירוג 5 כוכבים">
+              <span class="star" aria-hidden="true">★</span>
+              <span class="star" aria-hidden="true">★</span>
+              <span class="star" aria-hidden="true">★</span>
+              <span class="star" aria-hidden="true">★</span>
+              <span class="star" aria-hidden="true">★</span>
+            </div>
+            <p class="testimonial-text">
+              "ידעתי שאני בידיים טובות מהרגע הראשון. יעל הסבירה לי כל שלב, דאגה לאינטרסים שלי ופעלה במהירות ובמקצועיות."
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar" role="img" aria-label="תמונת לקוחה">👩</div>
+              <div>
+                <div class="author-name">מיכל ש.</div>
+                <div class="author-detail">הסכם ממון וייעוץ לפני נישואין</div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="numbers-grid" role="list" aria-label="מספרים מרשימים">
+          <div class="number-item" role="listitem">
+            <div class="number-value">+15</div>
+            <div class="number-label">שנות ניסיון</div>
+          </div>
+          <div class="number-item" role="listitem">
+            <div class="number-value">+800</div>
+            <div class="number-label">תיקים שטופלו</div>
+          </div>
+          <div class="number-item" role="listitem">
+            <div class="number-value">97%</div>
+            <div class="number-label">שביעות רצון</div>
+          </div>
+          <div class="number-item" role="listitem">
+            <div class="number-value">100%</div>
+            <div class="number-label">מחויבות אישית</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section id="cta-section" role="region" aria-label="צרו קשר">
+      <div class="container">
+        <div class="cta-inner fade-in">
+          <div class="section-label" style="background:rgba(201,168,76,0.15);border-color:rgba(201,168,76,0.3);color:var(--gold-light);margin-bottom:20px;">
+            מוכנים להתחיל?
+          </div>
+          <h2>
+            הצעד הראשון הוא<br/>
+            <span>שיחה אחת</span>
+          </h2>
+          <p>
+            שיחת ייעוץ ראשונית — ללא עלות וללא התחייבות. נבין יחד את המצב ונבחן את האפשרויות העומדות בפניכם.
+          </p>
+          <div class="cta-buttons">
+            <a href="https://wa.me/972522614444" class="btn btn-primary" aria-label="קבע שיחת ייעוץ ראשונית חינם">
+              <span>שיחת ייעוץ חינם ←</span>
+            </a>
+            <a href="tel:052-261-4444" class="btn btn-outline" aria-label="התקשרו אלינו">
+              <span>📞 052-261-4444</span>
+            </a>
+          </div>
+          <div class="cta-trust">
+            <div class="trust-item">
+              <span class="trust-check">✓</span>
+              <span>ללא עלות</span>
+            </div>
+            <div class="trust-item">
+              <span class="trust-check">✓</span>
+              <span>ללא התחייבות</span>
+            </div>
+            <div class="trust-item">
+              <span class="trust-check">✓</span>
+              <span>מענה תוך 24 שעות</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo-name">יעל כהן, עו"ד</div>
+          <div class="footer-logo-role">עורכת דין — דיני משפחה</div>
+          <p class="footer-desc">ייצוג מקצועי ואנושי בהליכי גירושין, משמורת, מזונות והסכמי ממון. עם יעל כהן — לא לבד בדרך.</p>
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="פייסבוק">📘</a>
+            <a href="#" class="social-link" aria-label="לינקדאין">💼</a>
+            <a href="#" class="social-link" aria-label="אינסטגרם">📷</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>ניווט</h4>
+          <ul>
+            <li><a href="#about">אודות</a></li>
+            <li><a href="#services">שירותים</a></li>
+            <li><a href="#process">תהליך</a></li>
+            <li><a href="#social-proof">המלצות</a></li>
+            <li><a href="#cta-section">צרו קשר</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>שירותים</h4>
+          <ul>
+            <li><a href="#services">ייצוג בגירושין</a></li>
+            <li><a href="#services">הסכמי ממון</a></li>
+            <li><a href="#services">משמורת ילדים</a></li>
+            <li><a href="#services">מזונות</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>צרו קשר</h4>
+          <div class="footer-contact-item">
+            <span class="footer-contact-icon">📞</span>
+            <span class="footer-contact-text">
+              <a href="tel:052-261-4444" style="color:inherit;">052-261-4444</a>
+            </span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="footer-contact-icon">✉️</span>
+            <span class="footer-contact-text">yael@example.com</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="footer-contact-icon">📍</span>
+            <span class="footer-contact-text">תל אביב והסביבה</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="footer-contact-icon">🕐</span>
+            <span class="footer-contact-text">א׳–ה׳, 09:00–18:00</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copyright">© 2025 יעל כהן, עורכת דין. כל הזכויות שמורות.</div>
+        <div class="footer-legal">
+          <a href="#">מדיניות פרטיות</a>
+          <a href="#">תנאי שימוש</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== WHATSAPP FLOAT ===== -->
+  <a href="https://wa.me/972522614444" class="whatsapp-float" target="_blank" rel="noopener" aria-label="שלחו הודעה בוואטסאפ">💬</a>
+
+  <script>
+    document.documentElement.classList.add('js-loaded');
+
+    const animItems = document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right');
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    animItems.forEach(el => io.observe(el));
+
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobile-nav');
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileNav.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', isOpen);
+    });
+    function closeMobileNav() {
+      mobileNav.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', false);
+    }
+    document.addEventListener('click', e => {
+      if (!header.contains(e.target)) closeMobileNav();
+    });
+  </script>
+
+</body>
+</html>
