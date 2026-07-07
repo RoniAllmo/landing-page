@@ -1,0 +1,1705 @@
+```html
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carmeli Sports Agency | ייצוג שחקני כדורגל מקצועי</title>
+  <meta name="description" content="יריב כרמלי – סוכן כדורגל מוביל עם 12 שנות ניסיון. ייצוג שחקנים צעירים בליגה הישראלית וחשיפה לליגות אירופה. קבעו פגישת היכרות עוד היום." />
+  <meta property="og:title" content="Carmeli Sports Agency | ייצוג שחקני כדורגל" />
+  <meta property="og:description" content="ייצוג מקצועי לשחקנים צעירים 17-25. משא ומתן, חוזים, טרנספרים וחשיפה לסקאוטים אירופאים." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="he_IL" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================
+       CSS VARIABLES
+    ============================================ */
+    :root {
+      --gold:        #C9A84C;
+      --gold-light:  #E2C46F;
+      --gold-dark:   #A6872C;
+      --black:       #0A0A0A;
+      --dark:        #111111;
+      --dark-2:      #1A1A1A;
+      --dark-3:      #242424;
+      --dark-4:      #2E2E2E;
+      --white:       #FFFFFF;
+      --gray-100:    #F5F5F5;
+      --gray-300:    #CCCCCC;
+      --gray-500:    #888888;
+      --gray-700:    #444444;
+
+      --radius-sm:   6px;
+      --radius-md:   12px;
+      --radius-lg:   20px;
+      --radius-xl:   32px;
+
+      --shadow-sm:   0 2px 8px rgba(0,0,0,0.3);
+      --shadow-md:   0 8px 32px rgba(0,0,0,0.4);
+      --shadow-lg:   0 16px 64px rgba(0,0,0,0.5);
+      --shadow-gold: 0 8px 32px rgba(201,168,76,0.35);
+
+      --transition:  0.35s cubic-bezier(0.4,0,0.2,1);
+      --font:        'Heebo', sans-serif;
+    }
+
+    /* ============================================
+       RESET & BASE
+    ============================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ============================================
+       ANIMATIONS — כלל ברזל
+    ============================================ */
+    .fade-in {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .js-loaded .fade-in {
+      opacity: 0;
+      transform: translateY(28px);
+    }
+
+    .fade-in.visible {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+
+    @keyframes pulse-ring {
+      0%   { box-shadow: 0 0 0 0 rgba(201,168,76,0.5); }
+      70%  { box-shadow: 0 0 0 18px rgba(201,168,76,0); }
+      100% { box-shadow: 0 0 0 0 rgba(201,168,76,0); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-8px); }
+    }
+
+    @keyframes shimmer {
+      0%   { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50%       { background-position: 100% 50%; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      html { scroll-behavior: auto; }
+    }
+
+    /* ============================================
+       TYPOGRAPHY HELPERS
+    ============================================ */
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .section-label::before,
+    .section-label::after {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 1.5px;
+      background: var(--gold);
+    }
+
+    .gold-text {
+      color: var(--gold);
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 900;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: var(--gray-300);
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    /* ============================================
+       BUTTONS
+    ============================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 32px;
+      border-radius: 50px;
+      font-family: var(--font);
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: var(--black);
+      box-shadow: var(--shadow-gold);
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, var(--gold-light), var(--gold));
+      box-shadow: 0 12px 48px rgba(201,168,76,0.5);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,0.3);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      box-shadow: 0 8px 32px rgba(201,168,76,0.2);
+    }
+
+    .btn-whatsapp {
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      color: var(--white);
+      box-shadow: 0 8px 32px rgba(37,211,102,0.35);
+    }
+
+    .btn-whatsapp:hover {
+      box-shadow: 0 12px 48px rgba(37,211,102,0.5);
+    }
+
+    /* ============================================
+       1. HEADER
+    ============================================ */
+    #header {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 1000;
+      padding: 18px 0;
+      transition: background var(--transition), padding var(--transition), box-shadow var(--transition);
+    }
+
+    #header.scrolled {
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 1px 0 rgba(201,168,76,0.15), 0 4px 24px rgba(0,0,0,0.4);
+      padding: 12px 0;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .logo-main {
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .logo-sub {
+      font-size: 0.68rem;
+      font-weight: 500;
+      color: var(--gray-300);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .header-nav a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--gray-300);
+      transition: color var(--transition);
+      position: relative;
+    }
+
+    .header-nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      right: 0;
+      left: 0;
+      height: 1.5px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform var(--transition);
+    }
+
+    .header-nav a:hover {
+      color: var(--gold);
+    }
+
+    .header-nav a:hover::after {
+      transform: scaleX(1);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .header-phone {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--gold);
+      direction: ltr;
+    }
+
+    .header-phone:hover {
+      color: var(--gold-light);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    /* Mobile Nav */
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      gap: 0;
+      background: rgba(17,17,17,0.98);
+      backdrop-filter: blur(20px);
+      padding: 16px 24px 24px;
+      border-top: 1px solid rgba(201,168,76,0.15);
+    }
+
+    .mobile-nav.open {
+      display: flex;
+    }
+
+    .mobile-nav a {
+      padding: 14px 0;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--gray-300);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: color var(--transition);
+    }
+
+    .mobile-nav a:hover { color: var(--gold); }
+
+    .mobile-nav .btn {
+      margin-top: 16px;
+      width: 100%;
+    }
+
+    /* ============================================
+       2. HERO
+    ============================================ */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 120px 0 80px;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 40%, rgba(201,168,76,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 50% at 20% 80%, rgba(201,168,76,0.06) 0%, transparent 50%),
+        linear-gradient(160deg, #0D0D0D 0%, #111111 50%, #0A0A0A 100%);
+      background-size: 200% 200%;
+      animation: gradientShift 12s ease infinite;
+    }
+
+    .hero-grid-pattern {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 760px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: 50px;
+      padding: 8px 18px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--gold);
+      margin-bottom: 28px;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-badge .dot {
+      width: 7px;
+      height: 7px;
+      background: var(--gold);
+      border-radius: 50%;
+      animation: pulse-ring 2s infinite;
+    }
+
+    #hero h1 {
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+    }
+
+    .hero-shimmer {
+      background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 40%, var(--gold) 60%, var(--gold-dark) 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 4s linear infinite;
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      font-weight: 400;
+      color: var(--gray-300);
+      margin-bottom: 40px;
+      max-width: 580px;
+      line-height: 1.7;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 56px;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .hero-stat {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero-stat-num {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-stat-label {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--gray-500);
+      letter-spacing: 0.05em;
+      margin-top: 4px;
+    }
+
+    .hero-divider {
+      width: 1px;
+      height: 50px;
+      background: rgba(255,255,255,0.1);
+      align-self: center;
+    }
+
+    /* Hero Deco */
+    .hero-deco {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .hero-deco-circle {
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      border: 1px solid rgba(201,168,76,0.08);
+      position: relative;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .hero-deco-circle::before {
+      content: '';
+      position: absolute;
+      inset: 40px;
+      border-radius: 50%;
+      border: 1px solid rgba(201,168,76,0.06);
+    }
+
+    .hero-deco-circle::after {
+      content: '';
+      position: absolute;
+      inset: 80px;
+      border-radius: 50%;
+      border: 1px solid rgba(201,168,76,0.04);
+    }
+
+    .hero-emoji {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 7rem;
+      filter: drop-shadow(0 0 40px rgba(201,168,76,0.3));
+    }
+
+    /* ============================================
+       3. ABOUT
+    ============================================ */
+    #about {
+      padding: 100px 0;
+      background: var(--dark);
+      position: relative;
+    }
+
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-visual {
+      position: relative;
+    }
+
+    .about-card {
+      background: var(--dark-2);
+      border: 1px solid rgba(201,168,76,0.15);
+      border-radius: var(--radius-xl);
+      padding: 48px 36px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .about-emoji {
+      font-size: 5rem;
+      margin-bottom: 20px;
+      display: block;
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .about-card-name {
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .about-card-role {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .about-card-tag {
+      display: inline-block;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.25);
+      border-radius: 50px;
+      padding: 6px 16px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--gold);
+    }
+
+    .about-badge-exp {
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      border-radius: 50px;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: var(--shadow-gold);
+      white-space: nowrap;
+    }
+
+    .about-badge-exp span:first-child {
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--black);
+      line-height: 1;
+    }
+
+    .about-badge-exp span:last-child {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: rgba(0,0,0,0.75);
+      line-height: 1.3;
+    }
+
+    .about-text-wrap {
+      padding-bottom: 20px;
+    }
+
+    .about-text {
+      font-size: 1rem;
+      color: var(--gray-300);
+      line-height: 1.8;
+      margin-bottom: 40px;
+    }
+
+    .about-values {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .about-value {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      background: var(--dark-2);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      transition: border-color var(--transition), transform var(--transition);
+    }
+
+    .about-value:hover {
+      border-color: rgba(201,168,76,0.3);
+      transform: translateX(-4px);
+    }
+
+    .about-value-icon {
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
+      background: rgba(201,168,76,0.1);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+    }
+
+    .about-value-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .about-value-desc {
+      font-size: 0.85rem;
+      color: var(--gray-500);
+      line-height: 1.5;
+    }
+
+    /* ============================================
+       4. SERVICES
+    ============================================ */
+    #services {
+      padding: 100px 0;
+      background: var(--black);
+    }
+
+    .services-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .services-header .section-subtitle {
+      margin: 0 auto;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .service-card {
+      background: var(--dark-2);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 120px;
+      height: 120px;
+      background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      transition: opacity var(--transition);
+      opacity: 0;
+    }
+
+    .service-card:hover::before {
+      opacity: 1;
+    }
+
+    .service-card:hover {
+      transform: scale(1.02) translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(201,168,76,0.3);
+    }
+
+    .service-card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .service-icon {
+      width: 58px;
+      height: 58px;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      transition: background var(--transition), transform var(--transition);
+    }
+
+    .service-card:hover .service-icon {
+      background: rgba(201,168,76,0.18);
+      transform: scale(1.05);
+    }
+
+    .service-num {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: rgba(201,168,76,0.3);
+      letter-spacing: 0.1em;
+    }
+
+    .service-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .service-desc {
+      font-size: 0.9rem;
+      color: var(--gray-500);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .service-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--gold);
+      transition: gap var(--transition);
+    }
+
+    .service-card:hover .service-link {
+      gap: 10px;
+    }
+
+    .service-link-arrow {
+      font-size: 0.9rem;
+      transition: transform var(--transition);
+    }
+
+    .service-card:hover .service-link-arrow {
+      transform: translateX(-4px);
+    }
+
+    /* ============================================
+       5. PROCESS
+    ============================================ */
+    #process {
+      padding: 100px 0;
+      background: var(--dark);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .process-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(201,168,76,0.04) 0%, transparent 70%);
+    }
+
+    .process-header {
+      text-align: center;
+      margin-bottom: 70px;
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
+    }
+
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 36px;
+      right: 12.5%;
+      left: 12.5%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), rgba(201,168,76,0.3), transparent);
+      z-index: 0;
+    }
+
+    .process-step {
+      text-align: center;
+      padding: 0 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .process-step-num {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--dark-2);
+      border: 2px solid rgba(201,168,76,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 28px;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--gold);
+      transition: background var(--transition), border-color var(--transition), transform var(--transition);
+      position: relative;
+    }
+
+    .process-step:hover .process-step-num {
+      background: rgba(201,168,76,0.15);
+      border-color: var(--gold);
+      transform: scale(1.08);
+    }
+
+    .process-step-title {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .process-step-desc {
+      font-size: 0.85rem;
+      color: var(--gray-500);
+      line-height: 1.6;
+    }
+
+    /* ============================================
+       6. SOCIAL PROOF
+    ============================================ */
+    #social-proof {
+      padding: 100px 0;
+      background: var(--black);
+    }
+
+    .social-proof-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 70px;
+    }
+
+    .testimonial-card {
+      background: var(--dark-2);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      position: relative;
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(201,168,76,0.2);
+    }
+
+    .testimonial-quote {
+      position: absolute;
+      top: -14px;
+      right: 28px;
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      color: var(--black);
+      font-weight: 900;
+    }
+
+    .testimonial-stars {
+      display: flex;
+      gap: 3px;
+      margin-bottom: 16px;
+      direction: ltr;
+      justify-content: flex-end;
+    }
+
+    .testimonial-stars span {
+      color: var(--gold);
+      font-size: 0.9rem;
+    }
+
+    .testimonial-text {
+      font-size: 0.92rem;
+      color: var(--gray-300);
+      line-height: 1.75;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 20px;
+    }
+
+    .testimonial-avatar {
+      width: 46px;
+      height: 46px;
+      min-width: 46px;
+      border-radius: 50%;
+      background: rgba(201,168,76,0.1);
+      border: 1.5px solid rgba(201,168,76,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    .testimonial-name {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .testimonial-role {
+      font-size: 0.78rem;
+      color: var(--gray-500);
+      margin-top: 2px;
+    }
+
+    /* Stats Bar */
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.05);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid rgba(201,168,76,0.1);
+    }
+
+    .stat-item {
+      background: var(--dark-2);
+      padding: 36px 24px;
+      text-align: center;
+      transition: background var(--transition);
+    }
+
+    .stat-item:hover {
+      background: var(--dark-3);
+    }
+
+    .stat-num {
+      font-size: 2.4rem;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--gray-500);
+      line-height: 1.4;
+    }
+
+    /* ============================================
+       7. CTA
+    ============================================ */
+    #cta {
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #0D0D0D 0%, #161410 40%, #0D0D0D 100%);
+    }
+
+    .cta-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 70% at 50% 50%, rgba(201,168,76,0.1) 0%, transparent 65%);
+    }
+
+    .cta-bg::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .cta-title {
+      font-size: clamp(2rem, 5vw, 3.6rem);
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+
+    .cta-sub {
+      font-size: 1.05rem;
+      color: var(--gray-300);
+      line-height: 1.7;
+      margin-bottom: 44px;
+    }
+
+    .cta-btns {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .cta-trust {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      color: var(--gray-500);
+    }
+
+    .cta-trust-icon {
+      color: var(--gold);
+      font-size: 0.9rem;
+    }
+
+    /* ============================================
+       8. FOOTER
+    ============================================ */
+    #footer {
+      background: var(--dark);
+      border-top: 1px solid rgba(201,168,76,0.1);
+      padding: 70px 0 30px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.8fr 1fr 1fr 1.2fr;
+      gap: 48px;
+      margin-bottom: 56px;
+    }
+
+    .footer-brand .logo {
+      margin-bottom: 18px;
+    }
+
+    .footer-brand-desc {
+      font-size: 0.88rem;
+      color: var(--gray-500);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 10px;
+    }
+
+    .footer-social {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-sm);
+      background: var(--dark-2);
+      border: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: background var(--transition), border-color var(--transition), transform var(--transition);
+    }
+
+    .footer-social:hover {
+      background: rgba(201,168,76,0.1);
+      border-color: rgba(201,168,76,0.3);
+      transform: translateY(-2px);
+    }
+
+    .footer-col-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      font-size: 0.88rem;
+      color: var(--gray-500);
+      transition: color var(--transition), padding-right var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--gold);
+      padding-right: 4px;
+    }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .footer-contact-icon {
+      font-size: 0.9rem;
+      margin-top: 3px;
+      color: var(--gold);
+    }
+
+    .footer-contact-text {
+      font-size: 0.88rem;
+      color: var(--gray-500);
+      line-height: 1.5;
+    }
+
+    .footer-contact-text a {
+      color: var(--gray-300);
+      transition: color var(--transition);
+    }
+
+    .footer-contact-text a:hover { color: var(--gold); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-copy {
+      font-size: 0.8rem;
+      color: var(--gray-700);
+    }
+
+    .footer-copy a {
+      color: var(--gold);
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-bottom-links a {
+      font-size: 0.8rem;
+      color: var(--gray-700);
+      transition: color var(--transition);
+    }
+
+    .footer-bottom-links a:hover { color: var(--gray-300); }
+
+    /* ============================================
+       WHATSAPP FLOAT
+    ============================================ */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px;
+      left: 28px;
+      z-index: 999;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.7rem;
+      box-shadow: 0 4px 24px rgba(37,211,102,0.45);
+      animation: pulse-ring 2.5s infinite;
+      cursor: pointer;
+      transition: transform var(--transition);
+      text-decoration: none;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+    }
+
+    .whatsapp-tooltip {
+      position: absolute;
+      left: 70px;
+      background: var(--dark-2);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: var(--radius-sm);
+      padding: 8px 14px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--white);
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition);
+    }
+
+    .whatsapp-float:hover .whatsapp-tooltip {
+      opacity: 1;
+    }
+
+    /* ============================================
+       RESPONSIVE
+    ============================================ */
+    @media (max-width: 1024px) {
+      .about-inner {
+        grid-template-columns: 1fr;
+        gap: 56px;
+      }
+
+      .about-visual {
+        max-width: 380px;
+        margin: 0 auto;
+      }
+
+      .process-steps {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+      }
+
+      .process-steps::before { display: none; }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 36px;
+      }
+
+      .hero-deco { display: none; }
+    }
+
+    @media (max-width: 768px) {
+      .header-nav { display: none; }
+
+      .header-actions .btn { display: none; }
+
+      .hamburger { display: flex; }
+
+      #hero { padding: 100px 0 60px; }
+
+      .hero-stats { gap: 24px; }
+
+      .hero-divider { height: 36px; }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-bar {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container { padding: 0 16px; }
+
+      .hero-btns { flex-direction: column; }
+
+      .hero-btns .btn { width: 100%; }
+
+      .hero-stats { gap: 16px; }
+
+      .hero-stat-num { font-size: 1.8rem; }
+
+      .process-steps {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-bar {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-btns { flex-direction: column; align-items: center; }
+
+      .cta-btns .btn { width: 100%; max-width: 320px; }
+
+      .footer-bottom-links { flex-direction: column; gap: 12px; }
+
+      .about-badge-exp {
+        position: static;
+        transform: none;
+        margin-top: 24px;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================
+       1. HEADER
+  ============================================ -->
+  <header id="header" role="banner">
+    <div class="container">
+      <div class="header-inner">
+        <!-- Logo -->
+        <a href="#hero" class="logo" aria-label="Carmeli Sports Agency - עמוד הבית">
+          <span class="logo-main">Carmeli Sports</span>
+          <span class="logo-sub">Agency · Tel Aviv</span>
+        </a>
+
+        <!-- Nav -->
+        <nav class="header-nav" aria-label="ניווט ראשי">
+          <a href="#about">אודות</a>
+          <a href="#services">שירותים</a>
+          <a href="#process">תהליך</a>
+          <a href="#social-proof">המלצות</a>
+          <a href="#cta">צור קשר</a>
+        </nav>
+
+        <!-- Actions -->
+        <div class="header-actions">
+          <a href="tel:054-777-8899" class="header-phone" aria-label="התקשרו אלינו">054-777-8899</a>
+          <a href="https://wa.me/972547778899?text=שלום יריב, אני מעוניין בפגישת היכרות" class="btn btn-primary" aria-label="קביעת פגישה בוואטסאפ" target="_blank" rel="noopener">
+            📅 קביעת פגישה
+          </a>
+          <button class="hamburger" aria-label="פתיחת תפריט" id="hamburgerBtn">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Nav -->
+    <nav class="mobile-nav" id="mobileNav" aria-label="תפריט נייד">
+      <a href="#about" class="mobile-link">אודות</a>
+      <a href="#services" class="mobile-link">שירותים</a>
+      <a href="#process" class="mobile-link">תהליך</a>
+      <a href="#social-proof" class="mobile-link">המלצות</a>
+      <a href="https://wa.me/972547778899?text=שלום יריב, אני מעוניין בפגישת היכרות" class="btn btn-whatsapp" aria-label="צרו קשר בוואטסאפ" target="_blank" rel="noopener">
+        💬 שלחו הודעה בוואטסאפ
+      </a>
+    </nav>
+  </header>
+
+  <!-- ============================================
+       2. HERO
+  ============================================ -->
+  <section id="hero" aria-label="כותרת ראשית">
+    <div class="hero-bg" role="presentation"></div>
+    <div class="hero-grid-pattern" role="presentation"></div>
+
+    <!-- Deco -->
+    <div class="hero-deco" aria-hidden="true">
+      <div class="hero-deco-circle">
+        <div class="hero-emoji" role="img" aria-label="כדורגל">⚽</div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge fade-in">
+          <span class="dot" aria-hidden="true"></span>
+          12 שנות ניסיון בייצוג שחקנים מקצועי
+        </div>
+
+        <h1 class="fade-in">
+          הקריירה שלך <br />
+          <span class="hero-shimmer">מתחילה כאן</span>
+        </h1>
+
+        <p class="hero-sub fade-in">
+          יריב כרמלי — סוכן כדורגל מוביל בישראל. אנחנו לוקחים שחקנים צעירים ומביאים אותם לאן שהם שייכים: מהליגה הישראלית לזירה האירופאית.
+        </p>
+
+        <div class="hero-btns fade-in">
+          <a
+            href="https://wa.me/972547778899?text=שלום יריב, אני שחקן כדורגל ומעוניין בפגישת היכרות"
+            class="btn btn-primary"
+            aria-label="קביעת פגישת היכרות בוואטסאפ"
+            target="_blank"
+            rel="noopener"
+          >
+            💬 קבע פגישת היכרות
+          </a>
+          <a href="#services" class="btn btn-outline" aria-label="לסקשן השירותים שלנו">
+            גלה את השירותים ←
+          </a>
+        </div>
+
+        <div class="hero-stats fade-in" role="list" aria-label="נתוני הסוכנות">
+          <div class="hero-stat" role="listitem">
+            <span class="hero-stat-num">12+</span>
+            <span class="hero-stat-label">שנות ניסיון</span>
+          </div>
+          <div class="hero-divider" aria-hidden="true"></div>
+          <div class="hero-stat" role="listitem">
+            <span class="hero-stat-num">80+</span>
+            <span class="hero-stat-label">שחקנים יוצגו</span>
+          </div>
+          <div class="hero-divider" aria-hidden="true"></div>
+          <div class="hero-stat" role="listitem">
+            <span class="hero-stat-num">15+</span>
+            <span class="hero-stat-label">ליגות אירופה</span>
+          </div>
+          <div class="hero-divider" aria-hidden="true"></div>
+          <div class="hero-stat" role="listitem">
+            <span class="hero-stat-num">95%</span>
+            <span class="hero-stat-label">שביעות רצון</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       3. ABOUT
+  ============================================ -->
+  <section id="about" aria-labelledby="about-heading">
+    <div class="container">
+      <div class="about-inner">
+
+        <!-- Visual -->
+        <div class="about-visual fade-in">
+          <div class="about-card">
+            <span class="about-emoji" role="img" aria-label="סוכן כדורגל">🤝</span>
+            <div class="about-card-name">יריב כרמלי</div>
+            <div class="about-card-role">Football Agent · FIFA Licensed</div>
+            <span class="about-card-tag">⭐ Top Agent Israel 2024</span>
+          </div>
+          <div class="about-badge-exp" aria-label="ניסיון של 12 שנה">
+            <span>12</span>
+            <span>שנות<br />ניסיון</span>
+          </div>
+        </div>
+
+        <!-- Text -->
+        <div class="about-text-wrap">
+          <span class="section-label fade-in">אודות הסוכנות</span>
+          <h2 class="section-title fade-in" id="about-heading">
+            לא רק סוכן —<br /><span class="gold-text">שותף לקריירה</span>
+          </h2>
+          <p class="about-text fade-in">
+            Carmeli Sports Agency נוסדה על בסיס אמונה אחת: כל שחקן כדורגל מוכשר ראוי לייצוג אמיתי, לא להבטחות ריקות. אנחנו מלווים שחקנים מגיל 17 ועד הביסוס המלא בקריירה האירופאית — עם ניסיון, קשרים ומחויבות אישית שלא מוצאים בכל מקום.
+          </p>
+
+          <div class="about-values">
+            <div class="about-value fade-in">
+              <div class="about-value-icon" role="img" aria-label="מחויבות">🎯</div>
+              <div>
+                <div class="about-value-title">מחויבות אישית ל-100%</div>
+                <div class="about-value-desc">כל שחקן מקבל ייצוג מלא, ישיר ואישי מיריב עצמו — ללא מתווכים.</div>
+              </div>
+            </div>
+            <div class="about-value fade-in">
+              <div class="about-value-icon" role="img" aria-label="רשת קשרים">🌍</div>
+              <div>
+                <div class="about-value-title">רשת קשרים אירופאית</div>
+                <div class="about-value-desc">קשרים ישירים עם סקאוטים, מנהלי ספורט ומועדונים ב-15 ליגות.</div>
+              </div>
+            </div>
+            <div class="about-value fade-in">
+              <div class="about-value-icon" role="img" aria-label="מקצועיות">⚖️</div>
+              <div>
+                <div class="about-value-title">ייצוג משפטי בלתי מתפשר</div>
+                <div class="about-value-desc">כל חוזה נבדק לעומק — מבטיחים שהשחקן לא ייצא מקופח.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       4. SERVICES
+  ============================================ -->
+  <section id="services" aria-labelledby="services-heading">
+    <div class="container">
+      <div class="services-header">
+        <span class="section-label fade-in">מה אנחנו עושים</span>
+        <h2 class="section-title fade-in" id="services-heading">
+          שירותים שמשנים <span class="gold-text">קריירות</span>
+        </h2>
+        <p class="section-subtitle fade-in">
+          ממשא ומתן מול מועדונים ועד חשיפה לסקאוטים אירופאים — אנחנו מכסים כל היבט בקריירת השחקן.
+        </p>
+      </div>
+
+      <div class="services-grid">
+
+        <article class="service-card fade-in" aria-label="שירות ייצוג במשא ומתן">
+          <div class="service-card-top">
+            <div class="service-icon" role="img" aria-label="לחיצת יד">🤝</div>
+            <span class="service-num">01</span>
+          </div>
+          <h3 class="service-title">ייצוג במשא ומתן מול מועדונים</h3>
+          <p class="service-desc">
+            אנחנו מנהלים את כל המשא ומתן מולכם — השחקן מתרכז במגרש, אנחנו מתרכזים בתנאים. חוזים הוגנים שמשקפים את האמת של הכישרון.
+          </p>
+          <a href="https://wa.me/972547778899?text=אני מעוניין לשמוע על שירות ייצוג במשא ומתן" class="service-link" aria-label="פרטים על ייצוג במשא ומתן" target="_blank" rel="noopener">
+            מידע נוסף <span class="service-link-arrow" aria-hidden="true">←</span>
+          </a>
+        </article>
+
+        <article class="service-card fade-in" aria-label="שירות ניהול העברות">
+          <div class="service-card-top">
+            <div class="service-icon" role="img" aria-label="חץ העברה">🔄</div>
+            <span class="service-num">02</span>
+          </div>
+          <h3 class="service-title">ניהול העברות (טרנספרים)</h3>
+          <p class="service-desc">
+            העברה בין מועדונים היא תהליך מורכב. אנחנו מטפלים בכל הלוגיסטיקה, הניירת הבינלאומית והתיאומים — בארץ ובחו"ל.
+          </p>
+          <a href="https://wa.me/972547778899?text=אני מעוניין לשמוע על שירות ניהול העברות" class="service-link" aria-label="פרטים על ניהול העברות" target="_blank" rel="noopener">
+            מידע נוסף <span class="service-link-arrow" aria-hidden="true">←</span>
+          </a>
+        </article>
+
+        <article class="service-card fade-in" aria-label="שירות ליווי חוזי ומשפטי">
+          <div class="service-card-top">
+            <div class="service-icon" role="img" aria-label="מסמך חוזי">📋</div>
+            <span class="service-num">03</span>
+          </div>
+          <h3 class="service-title">ליווי חוזי ומשפטי</h3>
+          <p class="service-desc">
+            כל חוזה כדורגל מסתיר פרטים שהמועדון מעדיף שלא תדעו. הצוות המשפטי שלנו מבטיח שכל סעיף מגן עליך — לא עליהם.
+          </p>
+          <a href="https://wa.me/972547778899?text=אני מעוניין לשמוע על שירות ליווי חוזי" class="service-link" aria-label="פרטים על ליווי חוזי" target="_blank" rel="noopener">
+            מידע נוסף <span class="service-link-arrow" aria-hidden="true">←</span>
+          </a>
+        </article>
+
+        <article class="service-card fade-in" aria-label="שירות קידום וחשיפה לסקאוטים">
+          <div class="service-card-top">
+            <div class="service-icon" role="img" aria-label="כדור כוכב">🌟</div>
+            <span class="service-num">04</span>
+          </div>
+          <h3 class="service-title">קידום וחשיפה לסקאוטים אירופאים</h3>
+          <p class="service-desc">
+            הכישרון צריך להיראות. אנחנו מפיצים פרופילים, מסדרים ניסיונות וקשרים ישירים עם סקאוטים מ-15 ליגות אירופאיות מובילות.
+          </p>
+          <a href="https://wa.me/972547778899?text=אני מעוניין לשמוע על חשיפה לסקאוטים אירופאים" class="service-link" aria-label="פרטים על חשיפה לסקאוטים" target="_blank" rel="noopener">
+            מידע נוסף <span class="service-link-arrow" aria-hidden="true">←</span>
+          </a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       5. PROCESS
+  ============================================ -->
+  <section id="process" aria-labelledby="process-heading">
+    <div class="process-bg" role="presentation"></div>
+    <div class="container" style="position:relative; z-index:2;">
+      <div class="process-header">
+        <span class="section-label fade-in">איך זה עובד</span>
+        <h2 class="section-title fade-in" id="process-heading">
+          ארבעה שלבים ל<span class="gold-text">קריירה אמיתית</span>
+        </h2>
+        <p class="section-subtitle fade-in" style="margin: 0 auto;">
+          תהליך ברור, שקוף ומלווה — מהפגישה הראשונה ועד לחתימה על החוזה שמשנה הכל.
+        </p>
+      </div>
+
+      <div class="process-steps" role="list">
+
+        <div class="process-step fade-in" role="listitem">
+          <div class="process-step-num" aria-label="שלב ראשון">1</div>
+          <h3 class="process-step-title">פגישת היכרות</h3>
+          <p class="process-step-desc">מכירים, מאזינים, ומבינים את הפוטנציאל ואת המטרות — ללא התחייבות וללא עלות.</p>
+        </div>
+
+        <div class="process-step fade-in" role="listitem" style="--delay: 0.1s">
+          
